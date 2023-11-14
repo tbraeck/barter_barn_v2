@@ -9,7 +9,6 @@ class ForumsController < ApplicationController
   end
 
   # GET /forums/1
-  # GET /forums/1
   def show
     render json: @forum
   end
