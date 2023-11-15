@@ -1,23 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState, useEffect, useContext} from "react";
+import {Routes, Route, Navigate} from 'react-router-dom';
+import { UserContext } from './UserContext.js';
+import { ForumContext } from './ForumContext.js';
 
-function App() {
+
+const App = () => {
+  const {user, setUser} = useContext(UserContext);
+  const {allForum, setAllForum } = useContext(ForumContext)
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>This is my app</h1>
+      <img src="https://media.tenor.com/MemzmgMAOJ8AAAAM/bite-tail-cute-dog.gif" alt="puppy"/>
+      <p>This is just gibberish filler that I am typing here to get the space filled.</p>
     </div>
   );
 }
