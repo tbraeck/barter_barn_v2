@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :users
+  resources :frees
+  resources :services
+  resources :goods
   resources :forums
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

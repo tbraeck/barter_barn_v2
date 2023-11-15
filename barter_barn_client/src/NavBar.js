@@ -24,12 +24,6 @@ const NavBar = ({user, handleLogout}) => {
             HOME
         </button>
       </Link>
-     
-      <Link to="/forums" className='btn '>
-        <button  type='button' className='btn btn-secondary'>
-            THINGS TO BARTER
-        </button>
-      </Link>
       <Link to="/featured" className='btn '>
         <button  type='button' className='btn btn-secondary'>
              DAILY FEATURED  

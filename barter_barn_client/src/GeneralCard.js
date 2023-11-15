@@ -1,13 +1,18 @@
 import React, { useState, useContext} from 'react';
-import { ForumContext } from '../contexts/ForumContext.js';
-import { UserContext } from '../contexts/UserContext.js';
+import { ForumContext } from './ForumContext.js';
+import { UserContext } from './UserContext.js';
 
 const GeneralCard = () => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
+    const {user, setUser} = useContext(UserContext);
+    const {allForum, setAllForum } = useContext(ForumContext)
+
+   
+
+  return (      
+   <>
+   <button type='submit' >SAVE</button>
+   </>
+  );
+}; 
 
 export default GeneralCard
