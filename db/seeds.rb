@@ -66,20 +66,20 @@ puts "🤖 Seeding Goods..."
 
 Good.create!([
       {
-        title: Faker::House.furniture,
+        name: Faker::House.furniture,
         description: Faker::Construction.material,
         good_or_service: Faker::Construction.trade,
         user_id: 1,
       },
       {
-        title: Faker::House.furniture,
+        name: Faker::House.furniture,
         description: Faker::Construction.material,
         good_or_service: Faker::Construction.trade,
         user_id: 2,
 
       },
       {
-        title: Faker::House.furniture,
+        name: Faker::House.furniture,
         description: Faker::Construction.material,
         good_or_service: Faker::Construction.trade,
         user_id: 3,
@@ -87,7 +87,7 @@ Good.create!([
 
       },
       {
-        title: Faker::House.furniture,
+        name: Faker::House.furniture,
         description: Faker::Construction.material,
         good_or_service: Faker::Construction.trade,
         user_id: 4,
@@ -95,7 +95,7 @@ Good.create!([
 
       },
       {
-        title: Faker::House.furniture,
+        name: Faker::House.furniture,
         description: Faker::Construction.material,
         good_or_service: Faker::Construction.trade,
         user_id: 5,
@@ -103,7 +103,7 @@ Good.create!([
 
       },
       {
-        title: Faker::House.furniture,
+        name: Faker::House.furniture,
         description: Faker::Construction.material,
         good_or_service: Faker::Construction.trade,
         user_id: 6,
@@ -111,7 +111,7 @@ Good.create!([
 
       },
       {
-        title: Faker::House.furniture,
+        name: Faker::House.furniture,
         description: Faker::Construction.material,
         good_or_service: Faker::Construction.trade,
         user_id: 7,
@@ -119,7 +119,7 @@ Good.create!([
 
       },
       {
-        title: Faker::House.furniture,
+        name: Faker::House.furniture,
         description: Faker::Construction.material,
         good_or_service: Faker::Construction.trade,
         user_id: 8,
@@ -127,7 +127,7 @@ Good.create!([
 
       },
       {
-        title: Faker::House.furniture,
+        name: Faker::House.furniture,
         description: Faker::Construction.material,
         good_or_service: Faker::Construction.trade,
         user_id: 1,
@@ -135,165 +135,156 @@ Good.create!([
       }
 ])
 
-Good.all.each do |good|
-  image_file_path = Rails.root.join('db/images/stockImage.png')
-  image = File.open(image_file_path)
-  good.main_image.attach(io: image, filename: 'stockImage.png')
-end
+# Good.all.each do |good|
+#   image_file_path = Rails.root.join('db/images/stockImage.png')
+#   image = File.open(image_file_path)
+#   good.main_image.attach(io: image, filename: 'stockImage.png')
+# end
 
 puts "🤖 Seeding Services..."
 
   Service.create!([
     {
-      title: Faker::Hobby.activity,
+        name: Faker::Hobby.activity,
       description: Faker::Job.key_skill,
       good_or_service: Faker::Appliance.equipment,
       user_id: 7,
-      forum_id: 2
     },
     {
-      title: Faker::Hobby.activity,
+        name: Faker::Hobby.activity,
       description: Faker::Job.key_skill,
       good_or_service: Faker::Appliance.equipment,
       user_id: 8,
-      forum_id: 2
     },
     {
-      title: Faker::Hobby.activity,
+        name: Faker::Hobby.activity,
       description: Faker::Job.key_skill,
       good_or_service: Faker::Appliance.equipment,
       user_id: 1,
-      forum_id: 2
     },
     {
-      title: Faker::Hobby.activity,
+        name: Faker::Hobby.activity,
       description: Faker::Job.key_skill,
       good_or_service: Faker::Appliance.equipment,
       user_id: 8,
-      forum_id: 2
     },
     {
-      title: Faker::Hobby.activity,
+        name: Faker::Hobby.activity,
       description: Faker::Job.key_skill,
       good_or_service: Faker::Appliance.equipment,
       user_id: 7,
-      forum_id: 2
     },
     {
-      title: Faker::Hobby.activity,
+        name: Faker::Hobby.activity,
       description: Faker::Job.key_skill,
       good_or_service: Faker::Appliance.equipment,
       user_id: 6,
-      forum_id: 2
     },
     {
-      title: Faker::Hobby.activity,
+        name: Faker::Hobby.activity,
       description: Faker::Job.key_skill,
       good_or_service: Faker::Appliance.equipment,
       user_id: 5,
-      forum_id: 2
     },
     {
-      title: Faker::Hobby.activity,
+        name: Faker::Hobby.activity,
       description: Faker::Job.key_skill,
       good_or_service: Faker::Appliance.equipment,
       user_id: 4,
-      forum_id: 2
     },
     {
-      title: Faker::Hobby.activity,
+        name: Faker::Hobby.activity,
       description: Faker::Job.key_skill,
       good_or_service: Faker::Appliance.equipment,
       user_id: 3,
-      forum_id: 2
     },
     {
-      title: Faker::Hobby.activity,
+        name: Faker::Hobby.activity,
       description: Faker::Job.key_skill,
       good_or_service: Faker::Appliance.equipment,
       user_id: 2,
-      forum_id: 2
     }
   ])
 
-  Service.all.each do |service|
-    image_file_path = Rails.root.join('db/images/barterBarn.png')
-    image = File.open(image_file_path)
-    service.main_image.attach(io: image, filename: 'barterBarn.png')
-  end
+#   Service.all.each do |service|
+#     image_file_path = Rails.root.join('db/images/barterBarn.png')
+#     image = File.open(image_file_path)
+#     service.main_image.attach(io: image, filename: 'barterBarn.png')
+#   end
 
 
 puts "🤖 Seeding Free Stuff..."
 
 
-FreeStuff.create!([
+Free.create!([
     {
-      body: Faker::Appliance.equipment,
+        name: Faker::Hobby.activity,
+      description: Faker::Appliance.equipment,
       claimant_id: nil,
       user_id: 3,
-      forum_id: 3
     },
     {
-      body: Faker::Appliance.equipment,
+        name: Faker::Hobby.activity,
+        description: Faker::Appliance.equipment,
       claimant_id: nil,
       user_id: 2,
-      forum_id: 3
-    },
+        },
     {
-      body: Faker::Appliance.equipment,
+        name: Faker::Hobby.activity,    
+    description: Faker::Appliance.equipment,
       claimant_id: nil,
-      user_id: 4,
-      forum_id: 3
-    },
+      user_id: 4
+        },
     {
-      body: Faker::Appliance.equipment,
-      claimant_id: nil,
-      user_id: 1,
-      forum_id: 3
-    },
-    {
-      body: Faker::Appliance.equipment,
+        name: Faker::Hobby.activity,
+        description: Faker::Appliance.equipment,
       claimant_id: nil,
       user_id: 1,
-      forum_id: 3
     },
     {
-      body: Faker::Appliance.equipment,
+        name: Faker::House.furniture,
+        description: Faker::Appliance.equipment,
+      claimant_id: nil,
+      user_id: 1,
+    },
+    {
+        name: Faker::House.furniture,
+        description: Faker::Appliance.equipment,
       claimant_id: nil,
       user_id: 4,
-      forum_id: 3
     },
     {
-      body: Faker::Appliance.equipment,
+        name: Faker::House.furniture,
+        description: Faker::Appliance.equipment,
       claimant_id: nil,
       user_id: 5,
-      forum_id: 3
     },
     {
-      body: Faker::Appliance.equipment,
+        name: Faker::House.furniture,
+        description: Faker::Appliance.equipment,
       claimant_id: nil,
       user_id: 6,
-      forum_id: 3
     },
     {
-      body: Faker::Appliance.equipment,
+        name: Faker::House.furniture,
+        description: Faker::Appliance.equipment,
       claimant_id: nil,
       user_id: 7,
-      forum_id: 3
     },
     {
-      body: Faker::Appliance.equipment,
+       
+    name: Faker::House.furniture,
+    description: Faker::Appliance.equipment,
       claimant_id: nil,
       user_id: 8,
-      forum_id: 3
     }
   ])
 
-  FreeStuff.all.each do |free_stuff|
-    image_file_path = Rails.root.join('db/images/calavera.png')
-    image = File.open(image_file_path)
-    free_stuff.main_image.attach(io: image, filename: 'calavera.png')
-  end
+#   FreeStuff.all.each do |free_stuff|
+#     image_file_path = Rails.root.join('db/images/calavera.png')
+#     image = File.open(image_file_path)
+#     free_stuff.main_image.attach(io: image, filename: 'calavera.png')
+#   end
   # puts "🤖 Seeding Messages..."
 
   # Message.create!([

@@ -4,13 +4,15 @@ import { UserContext } from './UserContext.js';
 
 const GeneralCard = () => {
     const {user, setUser} = useContext(UserContext);
-    const {allForum, setAllForum } = useContext(ForumContext)
+    const {allGoods, setAllGoods, allServices, setAllServices, allFrees, setAlFrees } = useContext(ForumContext)
+    
 
-   
+
+
 
   return (      
    <>
-   <button type='submit' >SAVE</button>
+    <button type='submit' >SAVE</button>
    </>
   );
 }; 

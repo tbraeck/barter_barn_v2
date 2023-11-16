@@ -6,7 +6,7 @@ function UserProvider({ children }) {
     const [user, setUser] = useState(null);
 
     useEffect(()=> {
-        fetch("/me").then((res)=> {
+        fetch("http://localhost:4000/me").then((res)=> {
           if(res.ok){
             res.json().then((user) => {
               setUser(user)})
@@ -14,8 +14,6 @@ function UserProvider({ children }) {
         })
       }, [])
 
-  // the value prop of the provider will be our context data
-  // this value will be available to child components of this provider
   return <UserContext.Provider value={{user, setUser}}>{children}</UserContext.Provider>;
 }
 

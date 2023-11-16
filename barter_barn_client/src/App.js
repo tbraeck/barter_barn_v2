@@ -5,19 +5,50 @@ import { ForumContext } from './ForumContext.js';
 import Home from "./Home.js";
 import Footer from "./Footer.js";
 import Header from "./Header.js";
+import GeneralCard from "./GeneralCard.js";
 
 const App = () => {
   const {user, setUser} = useContext(UserContext);
-  const {allForum, setAllForum } = useContext(ForumContext)
+  const { allGoods, allServices, allFrees, setAllGoods, setAllServices, setAllFrees } = useContext(ForumContext)
   
+console.log("goods", allGoods)
+console.log("services", allServices)
+console.log("frees", allFrees)
 
-  const forumItems = allForum.map((forum) => (
-    <div key={forum.id} className="forum-item">
-      <h1>
-        <Link to={`/forums/${forum.id}`} className="link">
-            {forum.title}
+  const forumGoods = allGoods.map((good) => (
+    <div key={good.id} className="forum-item">
+     <ul>
+     <h1>
+        <Link to={`http://localhost:3000/goods/${good.id}`} className="link">
+            {good.title}
         </Link>
       </h1>
+      </ul>
+    </div>
+  ));
+
+  const forumServices = allServices.map((service) => {
+    return(
+    <div key={service.id} className="forum-item">
+      <ul>
+      <h1>
+        <Link to={`http://localhost:3000/services/${service.id}`} className="link">
+            {service.title}
+        </Link>
+      </h1>
+      </ul>
+    </div>
+)});
+
+  const forumFrees = allFrees.map((free) => (
+    <div key={free.id} className="forum-item">
+      <ul>
+      <h1>
+        <Link to={`http://localhost:3000/frees/${free.id}`} className="link">
+            {free.title}
+        </Link>
+      </h1>
+      </ul>
     </div>
   ));
 
@@ -48,7 +79,16 @@ const App = () => {
             </Routes>
           </div> 
           <div>
-            {forumItems}
+            <div>
+              {forumGoods}
+            </div>
+            <div>
+              {forumServices}
+            </div>
+            <div>
+              {forumFrees}
+              <p>People are cool</p>
+            </div>
           </div>
         <div className='footer--pin'>
           <Footer/>
