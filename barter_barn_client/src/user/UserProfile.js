@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 // import UserItems from './UserItems'; 
-import { UserContext } from './UserContext.js';
-import { ForumContext } from './ForumContext.js';
+import { UserContext } from '../context/UserContext.js';
+import { ForumContext } from '../context/ForumContext.js';
 
 const UserProfile = () => {
   const {user, setUser} = useContext(UserContext);

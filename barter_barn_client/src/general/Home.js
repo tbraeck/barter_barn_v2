@@ -1,11 +1,10 @@
 import React, {useContext} from 'react';
 import { Link} from 'react-router-dom';
-import { UserContext } from './UserContext.js';
-import { ForumContext } from './ForumContext.js';
-import GeneralCard from './GeneralCard';
+// import { UserContext } from '../context/UserContext.js';
+import { ForumContext } from '../context/ForumContext.js';
 
 const Home = () => {
-  const {user, setUser} = useContext(UserContext);
+  // const {user, setUser} = useContext(UserContext);
   const { allGoods, allServices, allFrees, setAllGoods, setAllServices, setAllFrees } = useContext(ForumContext)
   
   const forumGoods = allGoods.map((good) => (
@@ -40,13 +39,11 @@ const Home = () => {
         <div className="mainPageItemsContainer" key="mainPageItemsContainer">
           <div className="category-column">
             <Link to={`/goods`} className="link">  <h1>GOODS TO BARTER</h1></Link>
-       
-            {forumGoods}
+              {forumGoods}
           </div>
           <div className="category-column">
             <Link to={`/services`} className="link"> <h1>SERVICES TO BARTER</h1></Link>
-           
-            {forumServices}
+              {forumServices}
           </div>
           <div className="category-column">
           <Link to={`/frees`} className="link" >  <h1>FREE STUFF</h1></Link> 

@@ -1,6 +1,6 @@
 import React, { useState, useContext} from 'react';
-import { ForumContext } from './ForumContext.js';
-import { UserContext } from './UserContext.js';
+import { ForumContext } from './context/ForumContext.js';
+import { UserContext } from './context/UserContext.js';
 
 const GeneralCard = ({props}) => {
     const {user, setUser} = useContext(UserContext);

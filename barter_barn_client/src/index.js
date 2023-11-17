@@ -4,8 +4,8 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { UserProvider } from './UserContext';
-import { ForumProvider } from './ForumContext';
+import { UserProvider } from './context/UserContext';
+import { ForumProvider } from './context/ForumContext';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

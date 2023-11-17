@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'; 
 import NavBar from './NavBar'
-import { UserContext } from './UserContext'
+import { UserContext } from '../context/UserContext'
 
 const Header = ({handleLogout, userComments, setUserComments}) => {
   const {user, setUser} = useContext(UserContext);

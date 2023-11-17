@@ -1,13 +1,13 @@
 import React, {useContext} from 'react'
 import { Link} from 'react-router-dom';
 
-import { ForumContext } from './ForumContext.js';
-import { UserContext } from './UserContext.js';
+import { ForumContext } from '../context/ForumContext.js';
+// import { UserContext } from '../context/UserContext.js';
 
 const AllGoods = () => {
 
-    const {user, setUser} = useContext(UserContext);
-  const { allGoods, allServices, allFrees, setAllGoods, setAllServices, setAllFrees } = useContext(ForumContext)
+    // const {user, setUser} = useContext(UserContext);
+  const { allGoods} = useContext(ForumContext)
   
   const forumGoods = allGoods.map((good) => (
     <div key={good.id} className="forum-item">

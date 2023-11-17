@@ -1,20 +1,20 @@
 import React, { useContext} from "react";
 import {Routes, Route, Navigate} from 'react-router-dom';
-import { UserContext } from './UserContext.js';
-import { ForumContext } from './ForumContext.js';
-import Home from "./Home.js";
-import Footer from "./Footer.js";
-import Header from "./Header.js";
+import { UserContext } from './context/UserContext.js';
+import { ForumContext } from './context/ForumContext.js';
+import Home from "./general/Home.js";
+import Footer from "./general/Footer.js";
+import Header from "./general/Header.js";
 import GeneralCard from "./GeneralCard.js";
-import UserProfile from "./UserProfile.js";
-import AllGoods from "./AllGoods.js";
-import AllServices from "./AllServices.js";
-import AllFrees from "./AllFrees.js";
+import UserProfile from "./user/UserProfile.js";
+import AllGoods from "./goods/AllGoods.js";
+import AllServices from "./services/AllServices.js";
+import AllFrees from "./free_stuff/AllFrees.js";
+import GoodPage from "./goods/GoodPage.js";
 
 const App = () => {
   const {user, setUser} = useContext(UserContext);
-  const { allGoods, allServices, allFrees } = useContext(ForumContext)
-
+  // const { allGoods, allServices, allFrees } = useContext(ForumContext)
 
   return (
     <div className="App">
@@ -32,7 +32,7 @@ const App = () => {
                 <Route path="/frees" element={<AllFrees  />} />
 
 
-                <Route path="/goods/:id" element={<GeneralCard  />}/> 
+                <Route path="/goods/:id" element={<GoodPage  />}/> 
                 <Route path="/services/:id" element={<GeneralCard   />}/> 
                 <Route path="/free_stuffs/:id" element={<GeneralCard  />}/>
                 <Route path="/featured" element={<GeneralCard   />} />
