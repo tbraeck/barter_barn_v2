@@ -8,21 +8,21 @@ function ForumProvider({ children }) {
   const [allFrees, setAllFrees] = useState([]);
 
   useEffect(()=> {
-    fetch("http://localhost:3000/goods").then((res)=> {
+    fetch("/goods").then((res)=> {
       if(res.ok){
         res.json().then((data) => {
           setAllGoods(data)})
       }
     })
 
-    fetch("http://localhost:3000/services").then((res)=> {
+    fetch("/services").then((res)=> {
       if(res.ok){
         res.json().then((data) => {
           setAllServices(data)})
       }
     })
 
-    fetch("http://localhost:3000/frees").then((res)=> {
+    fetch("/frees").then((res)=> {
       if(res.ok){
         res.json().then((data) => {
           setAllFrees(data)})

@@ -1,10 +1,11 @@
-import React from 'react';
+import React, {useContext} from 'react';
 // import UserItems from './UserItems'; 
-import { useParams } from 'react-router-dom';
+import { UserContext } from './UserContext.js';
+import { ForumContext } from './ForumContext.js';
 
-const UserProfile = ({ allForum, handleUpdateFreeStuffs, user, setUser, handleSaveGood }) => {
-  const { user_id } = useParams();
-
+const UserProfile = () => {
+  const {user, setUser} = useContext(UserContext);
+  const { allGoods, allServices, allFrees } = useContext(ForumContext)
   return (
     <div className="userProfile">
       <div>

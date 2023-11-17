@@ -7,16 +7,14 @@ import Footer from "./Footer.js";
 import Header from "./Header.js";
 import GeneralCard from "./GeneralCard.js";
 import UserProfile from "./UserProfile.js";
+import AllGoods from "./AllGoods.js";
+import AllServices from "./AllServices.js";
+import AllFrees from "./AllFrees.js";
 
 const App = () => {
   const {user, setUser} = useContext(UserContext);
   const { allGoods, allServices, allFrees } = useContext(ForumContext)
-  
-console.log("goods", allGoods)
-console.log("services", allServices)
-console.log("frees", allFrees)
 
- 
 
   return (
     <div className="App">
@@ -28,9 +26,13 @@ console.log("frees", allFrees)
           <div>
             <Routes>
                 <Route exact path="/" element={<Home /> } />  
-                {/* <Route path="/forums" element={<ForumList allForum={allForum}  setAllForum={setAllForum} /> }/>
-                <Route path="/forums/:id" element={<ForumCard  user={user} setUser={setUser} allForum={allForum} setAllForum={setAllForum}  />} />*/}
-                <Route path="/goods/:id" element={<GeneralCard     />}/> 
+                {/* {/* <Route path="/forums" element={<ForumList allForum={allForum}  setAllForum={setAllForum} /> }/> */}
+                <Route path="/goods" element={<AllGoods   />} />
+                <Route path="/services" element={<AllServices   />} />
+                <Route path="/frees" element={<AllFrees  />} />
+
+
+                <Route path="/goods/:id" element={<GeneralCard  />}/> 
                 <Route path="/services/:id" element={<GeneralCard   />}/> 
                 <Route path="/free_stuffs/:id" element={<GeneralCard  />}/>
                 <Route path="/featured" element={<GeneralCard   />} />
@@ -38,7 +40,7 @@ console.log("frees", allFrees)
                 <Route path="/users/:user_id/goods/:good_id" element={<EditGoods user={user}  allForum={allForum}/>} />
                 <Route path="/users/:user_id/services/:service_id" element={<EditServices user={user} allForum={allForum}/>} />
                 <Route path="/users/:user_id/free_stuffs/:free_ stuffs_id" element={<EditFreeStuffs user={user}  allForum={allForum}/>} /> */}
-                <Route path="/user-profile"  element={user ? <UserProfile   user={user} setUser={setUser}/> : <Navigate to='/'/>} /> 
+                <Route path="/user-profile"  element={ <UserProfile   user={user} setUser={setUser}/> } /> 
             </Routes>
           </div> 
              

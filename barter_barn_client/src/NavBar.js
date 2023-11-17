@@ -31,7 +31,7 @@ const NavBar = ({user, handleLogout}) => {
       </Link>
       <Link to="/user-profile" className='btn '>
         <button  type='button' className='btn btn-secondary'>
-            USER PROFILE
+          ACCOUNT
         </button>
       </Link>
     

@@ -8,69 +8,51 @@ const Home = () => {
   const {user, setUser} = useContext(UserContext);
   const { allGoods, allServices, allFrees, setAllGoods, setAllServices, setAllFrees } = useContext(ForumContext)
   
-  
   const forumGoods = allGoods.map((good) => (
     <div key={good.id} className="forum-item">
-     <ul>
-      <li>
-        <Link to={`http://localhost:3000/goods/${good.id}`} className="link">
-            {good.title}
-            <h5>{good.title}</h5>
-        </Link>
-      </li>
-    </ul>
-  </div>
-));
-
-const forumServices = allServices.map((service) => {
-    return(
-    <div key={service.id} className="forum-item">
-      <ul>
-        <li>
-        <Link to={`http://localhost:3000/services/${service.id}`} className="link">
-            <h5>{service.title}</h5>
-        </Link>
-        </li>
-      </ul>
+          <Link to={`/goods/${good.id}`} className="link">
+            <h5>{good.name}</h5>
+          </Link>
     </div>
-)});
-
-const forumFrees = allFrees.map((free) => (
-  <div key={free.id} className="forum-item">
-    <ul>
-      <li>
-        <Link to={`http://localhost:3000/frees/${free.id}`} className="link">
-          <h5>{free.title}</h5>
-        </Link>
-      </li>
-    </ul>
-  </div>
-));
+  ));
+  
+  const forumServices = allServices.map((service) => (
+    <div key={service.id} className="forum-item">
+          <Link to={`/services/${service.id}`} className="link">
+            <h5>{service.name}</h5>
+          </Link>
+    </div>
+  ));
+  
+  const forumFrees = allFrees.map((free) => (
+    <div key={free.id} className="forum-item">
+          <Link to={`/frees/${free.id}`} className="link">
+            <h5>{free.name}</h5>
+          </Link>
+    </div>
+  ));
   
 
   return (
     <div className="home">
-      <div className="background-image"></div> 
+      <div className="background-image"></div>
       <div className="content">
-      <div className="mainPageItemsContainer">
-                <div>
-                    <h1>GOODS TO BARTER</h1>
-                    {forumGoods.map(good => (
-                      <GeneralCard 
-                      allGoods={allGoods}
-                      setAllGoods={setAllGoods}
-                      />
-                    ))}
-                </div>
-                <div>
-                    <h1>SERVICES TO BARTER</h1>
-                      {forumServices}
-                </div>
-                <div>
-                    <h1>FREE STUFF</h1>
-                      {forumFrees}
-                </div>
-            </div>
+        <div className="mainPageItemsContainer" key="mainPageItemsContainer">
+          <div className="category-column">
+            <Link to={`/goods`} className="link">  <h1>GOODS TO BARTER</h1></Link>
+       
+            {forumGoods}
+          </div>
+          <div className="category-column">
+            <Link to={`/services`} className="link"> <h1>SERVICES TO BARTER</h1></Link>
+           
+            {forumServices}
+          </div>
+          <div className="category-column">
+          <Link to={`/frees`} className="link" >  <h1>FREE STUFF</h1></Link> 
+            {forumFrees}
+          </div>
+        </div>
       </div>
     </div>
   );

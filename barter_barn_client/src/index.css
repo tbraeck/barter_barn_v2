@@ -14,9 +14,13 @@ code {
 
 /* Header.css */
 
+/* Header.css */
+
+/* Header.css */
+
 .headerCont {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   align-items: center;
   padding: 20px;
   background-color: #343a40; /* Set your desired background color */
@@ -29,8 +33,15 @@ code {
 }
 
 .navbar {
-  margin-left: 20px; /* Add some margin to separate logo and navbar */
+  display: flex;
+  align-items: left;
 }
+
+/* ... (other styles) */
+ 
+
+/* ... (other styles) */
+
 
 .footer {
   background-color: #333; /* Customize background color */
@@ -44,3 +55,30 @@ code {
   position: relative;
   height: 77vh; /* Adjust the height as needed */
 }
+
+.mainPageItemsContainer {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 50px; /* Adjust as needed */
+}
+
+/* Your existing styles */
+
+.mainPageItemsContainer {
+  display: flex;
+  justify-content: space-around; /* Adjust as needed */
+}
+
+.category-column {
+  flex: 1;
+  margin: 0 10px; /* Adjust as needed for spacing */
+  max-width: 500px; /* Adjust as needed for column width */
+  border: 1px solid #ccc;
+  border-radius: 20px; /* Border to delineate columns */
+  padding: 10px; /* Add padding to create space around the column content */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center; /* Center text within the column */
+}
+
