@@ -1,5 +1,5 @@
 class ServicesController < ApplicationController
-  before_action :set_service, only: %i[ show update destroy ]
+  # before_action :set_service, only: %i[ index show update destroy ]
 
   # GET /services
   def index
@@ -46,6 +46,6 @@ class ServicesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def service_params
-      params.require(:service).permit(:name, :description, :claimant_id, :int, :user_id, :int)
+      params.require(:service).permit(:name, :description, :claimant_id, :user_id )
     end
 end

@@ -20,12 +20,12 @@ function ForumProvider({ children }) {
         res.json().then((data) => {
           setAllServices(data)})
       }
-    })
+    })  
 
     fetch("/frees").then((res)=> {
       if(res.ok){
         res.json().then((data) => {
-          setAllFrees(data)})
+          setAllFrees(data)}) 
       }
     })
   }, [])

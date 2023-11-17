@@ -1,10 +1,11 @@
 import React, {useContext} from 'react';
 import { Link} from 'react-router-dom';
-// import { UserContext } from '../context/UserContext.js';
+import { UserContext } from '../context/UserContext.js';
 import { ForumContext } from '../context/ForumContext.js';
+import GeneralCard from '../GeneralCard.js';
 
 const Home = () => {
-  // const {user, setUser} = useContext(UserContext);
+  const {user, setUser} = useContext(UserContext);
   const { allGoods, allServices, allFrees, setAllGoods, setAllServices, setAllFrees } = useContext(ForumContext)
   
   const forumGoods = allGoods.map((good) => (

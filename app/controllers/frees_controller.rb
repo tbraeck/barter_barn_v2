@@ -1,5 +1,5 @@
 class FreesController < ApplicationController
-  before_action :set_free, only: %i[ show update destroy ]
+  # skip_before_action :set_free, only: %i[ index show update destroy ]
 
   # GET /frees
   def index
@@ -46,6 +46,6 @@ class FreesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def free_params
-      params.require(:free).permit(:name, :description, :claimant_id, :int, :user_id, :int)
-    end
+      params.require(:free).permit(:name, :description, :claimant_id, :user_id)
+    end 
 end

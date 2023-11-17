@@ -33,9 +33,9 @@ const App = () => {
 
 
                 <Route path="/goods/:id" element={<GoodPage  />}/> 
-                <Route path="/services/:id" element={<GeneralCard   />}/> 
-                <Route path="/free_stuffs/:id" element={<GeneralCard  />}/>
-                <Route path="/featured" element={<GeneralCard   />} />
+                {/* <Route path="/services/:id" element={<GeneralCard   />}/>  */}
+                {/* <Route path="/free_stuffs/:id" element={<GeneralCard  />}/> */}
+                {/* <Route path="/featured" element={<GeneralCard   />} /> */}
                 {/* <Route path="/forums/:id/edit" element={<ForumCard allForum={allForum} setAllForum={setAllForum} />}/> 
                 <Route path="/users/:user_id/goods/:good_id" element={<EditGoods user={user}  allForum={allForum}/>} />
                 <Route path="/users/:user_id/services/:service_id" element={<EditServices user={user} allForum={allForum}/>} />

@@ -1,5 +1,5 @@
 class GoodsController < ApplicationController
-  before_action :set_good, only: %i[ show update destroy ]
+  # before_action :set_good, only: %i[ index show update destroy ]
 
   # GET /goods
   def index
@@ -46,6 +46,6 @@ class GoodsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def good_params
-      params.require(:good).permit(:name, :description, :claimant_id, :int, :user_id, :int)
+      params.require(:good).permit(:name, :description, :claimant_id, :user_id)
     end
 end

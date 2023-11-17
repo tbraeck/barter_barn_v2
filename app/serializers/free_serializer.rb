@@ -1,3 +1,3 @@
 class FreeSerializer < ActiveModel::Serializer
-  # attributes :id, :name, :description, :claimant_id, :int, :user_id, :int
+  attributes :id, :name, :description, :claimant_id, :user_id
 end
