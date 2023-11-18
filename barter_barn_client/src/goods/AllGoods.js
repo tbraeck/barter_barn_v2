@@ -1,6 +1,5 @@
 import React, {useContext} from 'react'
 import { Link} from 'react-router-dom';
-
 import { ForumContext } from '../context/ForumContext.js';
 import { UserContext } from '../context/UserContext.js';
 
