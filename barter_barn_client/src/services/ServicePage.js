@@ -14,11 +14,13 @@ const ServicePage = ({service}) => {
     return <div>Loading...</div>; // You can customize the loading state or handle errors
   }
   return (
-     <div>
-      <h1 classname="pageTitle">{selectedService.name}</h1>
-        <p className='pageDescription'>Description: {selectedService.description}</p>
+    <div className="full-height-page">
+      <div className="full-width-page">
+        <h1 className="pageTitle">{selectedService.name}</h1>
+        <p className="pageDescription">Description: {selectedService.description}</p>
         <button className="crudButton saveButton">SAVE</button>
         <button className="crudButton saveButton">CLAIM</button>
+      </div>
     </div>
   )
 }

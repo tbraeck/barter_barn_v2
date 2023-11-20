@@ -14,12 +14,19 @@ const FreesPage = ({free}) => {
     return <div>Loading...</div>; // You can customize the loading state or handle errors
   }
   return (
-     <div>
-      <h1 classname="pageTitle">{selectedFree.name}</h1>
-        <p className='pageDescription'>Description: {selectedFree.description}</p>
+    <div className="full-height-page">
+      <div className='pageTdiv'>
+        <h1 className="pageTitle">{selectedFree.name}</h1>
+      </div>
+      <div className='pageDdiv'>
+        <p className="pageDescription">Description: {selectedFree.description}</p>
+      </div>
+      <div className='buttonsContainer'>
         <button className="crudButton saveButton">SAVE</button>
         <button className="crudButton saveButton">CLAIM</button>
-    </div>
+      </div>
+      
+  </div>
   )
 }
 

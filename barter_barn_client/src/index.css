@@ -8,7 +8,6 @@ html, body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -16,28 +15,27 @@ code {
 
 .headerCont {
   display: flex;
-  /* justify-content: space-between; */
   align-items: center;
   padding: 20px;
-  background-color: #343a40; /* Set your desired background color */
-  color: white; /* Set your desired text color */
+  background-color: #343a40; 
+  color: white; 
 }
 
 .header-link {
-  background-color: #cebaba; /* Adjust the background color for the links */
-  padding: 10px; /* Adjust the padding for the links */
-  color: #fff; /* Set the text color for the links */
-  text-decoration: none; /* Remove underlines from links */
-  display: inline-block; /* Ensure padding is applied correctly */
-  margin: 5px; /* Adjust the margin between links */
+  background-color: #cebaba; 
+  padding: 10px; 
+  color: #fff; 
+  text-decoration: none; 
+  display: inline-block; 
+  margin: 5px; 
 }
 
 .header-link:hover {
-  background-color: #666; /* Adjust the background color for the links on hover */
+  background-color: #666; 
 }
 
 .logo {
-  max-width: 100px; /* Adjust the max-width based on your logo size preference */
+  max-width: 100px; 
   height: auto;
 }
 
@@ -46,42 +44,41 @@ code {
   align-items: left;
 }
 
+/* Add or modify the following styles in your CSS */
 
 .full-height-page {
-  min-height: 100vh; /* Set to 100vh to cover the entire viewport height */
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-}
-
-
-
-.footer {
-  background-color: #333;
-  color: #fff;
-  padding: 20px;
-  text-align: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .pageTitle {
-  font-size: 2rem;
+  font-size: 6rem;
   color: #333;
   margin-bottom: 10px;
 }
 
 .pageDescription {
-  font-size: 1.2rem;
+  font-size: 4rem;
   color: #555;
+  text-align: center;
   margin-bottom: 20px;
+}
+
+.buttonsContainer {
+  display: flex;
+  gap: 10px;
 }
 
 .crudButton {
   background-color: #007bff;
   color: #fff;
-  padding: 10px 20px;
+  padding: 15px 20px;
   font-size: 1rem;
   cursor: pointer;
   border: none;
-  margin-right: 10px;
   border-radius: 5px;
   transition: background-color 0.3s ease-in-out;
 }
@@ -90,9 +87,10 @@ code {
   background-color: #0056b3;
 }
 
+
 .footer {
-  background-color: #333; /* Customize background color */
-  color: #fff; /* Customize text color */
+  background-color: #333; 
+  color: #fff; 
   padding: 20px;
   text-align: center;
   margin-top: auto;
@@ -100,22 +98,23 @@ code {
 
 .home {
   position: relative;
-  height: 77vh; /* Adjust the height as needed */
+  height: 77vh; 
 }
 
 .mainPageItemsContainer {
+  margin-top: 60px;
   display: flex;
   flex: 1;
-  justify-content: space-around; /* Adjust as needed */
+  justify-content: space-around; 
 }
 
 .category-column {
   flex: 1;
-  margin: 0 10px; /* Adjust as needed for spacing */
-  max-width: 500px; /* Adjust as needed for column width */
+  margin: 0 10px; 
+  max-width: 500px; 
   border: 1px solid #ccc;
-  border-radius: 20px; /* Border to delineate columns */
-  padding: 10px; /* Add padding to create space around the column content */
+  border-radius: 20px; 
+  padding: 10px; 
   display: flex;
   flex-direction: column;
   align-items: center;
