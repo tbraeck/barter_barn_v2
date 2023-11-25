@@ -6,7 +6,7 @@ import GeneralCard from '../GeneralCard.js';
 
 const Home = () => {
   const {user, setUser} = useContext(UserContext);
-  const { allGoods, allServices, allFrees, setAllGoods, setAllServices, setAllFrees } = useContext(ForumContext)
+  const { allGoods, allServices, allFrees, communities,  setAllGoods, setAllServices, setAllFrees } = useContext(ForumContext)
   
   const forumGoods = allGoods.map((good) => (
     <div key={good.id} className="forum-item">
@@ -28,6 +28,14 @@ const Home = () => {
     <div key={free.id} className="forum-item">
           <Link to={`/frees/${free.id}`} className="link">
             <h2>{free.name}</h2>
+          </Link>
+    </div>
+  ));
+
+  const forumCommunities = communities.map((community) => (
+    <div key={community.id} className="forum-item">
+          <Link to={`/communities/${community.id}`} className="link">
+            <h2>{community.name}</h2>
           </Link>
     </div>
   ));
@@ -57,6 +65,12 @@ const Home = () => {
                 <h1>FREE STUFF</h1>
               </Link>
               {forumFrees}
+            </div>
+            <div className="category-column">
+              <Link to={`/communities`} className="link header-link">
+                <h1>COMMUNITY</h1>
+              </Link>
+              {forumCommunities}
             </div>
           </div>
         </div>

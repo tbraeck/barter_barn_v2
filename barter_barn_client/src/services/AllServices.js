@@ -18,8 +18,10 @@ const AllServices = () => {
   ));
   
   return (
-    <div>
+    <div className="forum-container">
+        <div className="forum-list">
      {forumServices}
+    </div>
     </div>
   )
 }

@@ -23,7 +23,8 @@ code {
 
 .header-link {
   background-color: #cebaba; 
-  padding: 10px; 
+  padding: 15px; 
+  border-radius: 15px;
   color: #fff; 
   text-decoration: none; 
   display: inline-block; 
@@ -31,7 +32,7 @@ code {
 }
 
 .header-link:hover {
-  background-color: #666; 
+  background-color: #f7f1f1; 
 }
 
 .logo {
@@ -125,9 +126,6 @@ code {
   gap: 10px;
 }
 
-
-
-
 .footer {
   background-color: #333; 
   color: #fff; 
@@ -142,7 +140,7 @@ code {
 }
 
 .mainPageItemsContainer {
-  margin-top: 60px;
+  margin-top: 30px;
   display: flex;
   flex: 1;
   justify-content: space-around; 
@@ -178,10 +176,10 @@ code {
 }
 
 .forum-list {
+  margin-top: -100px;
   background-color: rgba(255, 255, 255, 0.9); /* Add a semi-transparent white background */
   border-radius: 8px; 
   padding: 70px;
- 
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); 
 }
 

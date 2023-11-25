@@ -11,6 +11,8 @@ import AllServices from "./services/AllServices.js";
 import AllFrees from "./free_stuff/AllFrees.js";
 import GoodPage from "./goods/GoodPage.js";
 import ServicePage from "./services/ServicePage.js";
+import Communities from "./community/Communities.js";
+import Community from "./community/Community.js";
 import FreesPage from "./free_stuff/FreesPage.js";
 import FeatureCard from "./FeatureCard.js";
 
@@ -32,7 +34,9 @@ const App = () => {
                 <Route path="/goods" element={<AllGoods   />} />
                 <Route path="/services" element={<AllServices   />} />
                 <Route path="/frees" element={<AllFrees  />} />
+                <Route path="/communities" element={<Communities  />} />
                 <Route path="/goods/:id" element={<GoodPage  />}/> 
+                <Route path="/communities/:id" element={<Community  />}/> 
                 <Route path="/services/:id" element={<ServicePage   />}/> 
                 <Route path="/frees/:id" element={<FreesPage  />}/>
                 <Route path="/featured" element={<FeatureCard   />} />

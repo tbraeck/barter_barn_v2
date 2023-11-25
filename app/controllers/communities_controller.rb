@@ -3,9 +3,13 @@ class CommunitiesController < ApplicationController
   
     def index
       @communities = Community.all
+
+      render json: @communities
     end
   
     def show
+      render json: @community
+
     end
   
     def new

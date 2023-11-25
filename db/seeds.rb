@@ -274,6 +274,69 @@ Free.create!([
     }
   ])
 
+
+  puts "🤖 Seeding Community Stuff..."
+
+
+Community.create!([
+    {
+        name: Faker::Hobby.activity,
+      description: Faker::Appliance.equipment,
+      event_date: Faker::Date.between(from: Date.today, to: 1.year.from_now),
+      user_id: 3,
+    },
+    {
+      name: Faker::Hobby.activity,
+    description: Faker::Appliance.equipment,
+    event_date: Faker::Date.between(from: Date.today, to: 1.year.from_now),
+    user_id: 6,
+  },
+  {
+    name: Faker::Hobby.activity,
+  description: Faker::Appliance.equipment,
+  event_date: Faker::Date.between(from: Date.today, to: 1.year.from_now),
+  user_id: 4,
+},
+{
+  name: Faker::Hobby.activity,
+description: Faker::Appliance.equipment,
+event_date: Faker::Date.between(from: Date.today, to: 1.year.from_now),
+user_id: 5,
+},
+{
+  name: Faker::Hobby.activity,
+description: Faker::Appliance.equipment,
+event_date: Faker::Date.between(from: Date.today, to: 1.year.from_now),
+user_id: 1,
+},
+{
+  name: Faker::Hobby.activity,
+description: Faker::Appliance.equipment,
+event_date: Faker::Date.between(from: Date.today, to: 1.year.from_now),
+user_id: 1,
+},
+{
+  name: Faker::Hobby.activity,
+description: Faker::Appliance.equipment,
+event_date: Faker::Date.between(from: Date.today, to: 1.year.from_now),
+user_id: 2,
+},
+{
+  name: Faker::Hobby.activity,
+description: Faker::Appliance.equipment,
+event_date: Faker::Date.between(from: Date.today, to: 1.year.from_now),
+user_id: 3,
+},
+{
+  name: Faker::Hobby.activity,
+description: Faker::Appliance.equipment,
+event_date: Faker::Date.between(from: Date.today, to: 1.year.from_now),
+user_id: 8,
+},
+
+
+
+  ])
   # FreeStuff.all.each do |free_stuff|
   #   image_file_path = Rails.root.join('db/images/calavera.png')
   #   image = File.open(image_file_path)

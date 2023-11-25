@@ -6,6 +6,8 @@ function ForumProvider({ children }) {
   const [allGoods, setAllGoods] = useState([]);
   const [allServices, setAllServices] = useState([]);
   const [allFrees, setAllFrees] = useState([]);
+  const [communities, setAllCommunities] = useState([]);
+
 
   useEffect(()=> {
     fetch("/goods").then((res)=> {
@@ -28,9 +30,16 @@ function ForumProvider({ children }) {
           setAllFrees(data)}) 
       }
     })
+
+    fetch("/communities").then((res)=> {
+      if(res.ok){
+        res.json().then((data) => {
+          setAllCommunities(data)}) 
+      }
+    })
   }, [])
   return (
-    <ForumContext.Provider value={{ allGoods, allServices, allFrees, setAllGoods, setAllServices, setAllFrees }}>
+    <ForumContext.Provider value={{ allGoods, allServices, allFrees, communities, setAllCommunities, setAllGoods, setAllServices, setAllFrees }}>
       {children}
     </ForumContext.Provider>
   );

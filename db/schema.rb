@@ -39,9 +39,10 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_18_140616) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "community", force: :cascade do |t|
+  create_table "communities", force: :cascade do |t|
     t.string "name"
     t.text "description"
+    t.date "event_date"
     t.string "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
