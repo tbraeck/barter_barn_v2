@@ -12,6 +12,7 @@ import AllFrees from "./free_stuff/AllFrees.js";
 import GoodPage from "./goods/GoodPage.js";
 import ServicePage from "./services/ServicePage.js";
 import FreesPage from "./free_stuff/FreesPage.js";
+import FeatureCard from "./FeatureCard.js";
 
 const App = () => {
   const {user, setUser} = useContext(UserContext);
@@ -34,7 +35,7 @@ const App = () => {
                 <Route path="/goods/:id" element={<GoodPage  />}/> 
                 <Route path="/services/:id" element={<ServicePage   />}/> 
                 <Route path="/frees/:id" element={<FreesPage  />}/>
-                {/* <Route path="/featured" element={<GeneralCard   />} /> */}
+                <Route path="/featured" element={<FeatureCard   />} />
                 {/* <Route path="/forums/:id/edit" element={<ForumCard allForum={allForum} setAllForum={setAllForum} />}/> 
                 <Route path="/users/:user_id/goods/:good_id" element={<EditGoods user={user}  allForum={allForum}/>} />
                 <Route path="/users/:user_id/services/:service_id" element={<EditServices user={user} allForum={allForum}/>} />

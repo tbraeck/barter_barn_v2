@@ -22,7 +22,7 @@ const GoodPage = ({ good }) => {
         <button className="crudButton saveButton">SAVE</button>
         <button className="crudButton saveButton">CLAIM</button>
       </div>
-    </div>
+    </div>  
   );
 };
 

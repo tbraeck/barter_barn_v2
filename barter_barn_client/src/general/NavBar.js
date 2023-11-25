@@ -21,19 +21,23 @@ const NavBar = ({user, handleLogout}) => {
       <div className="btn ">
       <Link to="/" className='btn '>
         <button className='btn btn-secondary' type='button'>
-            HOME
+        <img src="/home.png" alt="User Icon" className='user_icon' />
+          <span className='user-text'>HOME</span>
         </button>
       </Link>
       <Link to="/featured" className='btn '>
         <button  type='button' className='btn btn-secondary'>
-             DAILY FEATURED  
+        <img src="/sun1.png" alt="User Icon" className='user_icon' />
+        <span className='user-text'>DAILY FEATURED</span>
         </button>
       </Link>
-      <Link to="/user-profile" className='btn '>
-        <button  type='button' className='btn btn-secondary'>
-          ACCOUNT
-        </button>
+      <Link to="/user-profile" className='btn'>
+        <div  type='button' className='btn btn-secondary' >
+          <img src="/farmer.png" alt="User Icon" className='user_icon' />
+          <span className='user-text'>ACCOUNT</span>
+        </div>
       </Link>
+
     
       {user ? (
         <div className='btn '>

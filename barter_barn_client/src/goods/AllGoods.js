@@ -17,9 +17,11 @@ const AllGoods = () => {
   ));
   
   return (
-    <div>
-     {forumGoods}
+    <div className="forum-container">
+    <div className="forum-list">
+      {forumGoods}
     </div>
+  </div>
   )
 }
 

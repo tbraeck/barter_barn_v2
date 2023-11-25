@@ -46,6 +46,6 @@ class GoodsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def good_params
-      params.permit(:name, :description, :claimant_id, :user_id, images: [])
+      params.permit(:name, :description, :claimant_id, :user_id, :main_image)
     end
 end

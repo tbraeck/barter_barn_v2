@@ -70,83 +70,47 @@ Good.create!([
         description: Faker::Construction.material,
         good_or_service: Faker::Construction.trade,
         user_id: 1,
-        images: [
-          Rails.root.join('db/images/calavera.png').open,
-          Rails.root.join('db/images/fire.jpeg').open,
-          Rails.root.join('db/images/stockImage.png').open
-        ]
-
+      
       },
       {
         name: Faker::House.furniture,
         description: Faker::Construction.material,
         good_or_service: Faker::Construction.trade,
         user_id: 2,
-        images: [
-          Rails.root.join('db/images/calavera.png').open,
-          Rails.root.join('db/images/fire.jpeg').open,
-          Rails.root.join('db/images/stockImage.png').open
-        ]
-
+      
       },
       {
         name: Faker::House.furniture,
         description: Faker::Construction.material,
         good_or_service: Faker::Construction.trade,
         user_id: 3,
-        images: [
-          Rails.root.join('db/images/calavera.png').open,
-          Rails.root.join('db/images/fire.jpeg').open,
-          Rails.root.join('db/images/stockImage.png').open
-        ]
-
+     
       },
       {
         name: Faker::House.furniture,
         description: Faker::Construction.material,
         good_or_service: Faker::Construction.trade,
         user_id: 4,
-        images: [
-          Rails.root.join('db/images/calavera.png').open,
-          Rails.root.join('db/images/fire.jpeg').open,
-          Rails.root.join('db/images/stockImage.png').open
-        ]
-
+     
       },
       {
         name: Faker::House.furniture,
         description: Faker::Construction.material,
         good_or_service: Faker::Construction.trade,
         user_id: 5,
-        images: [
-          Rails.root.join('db/images/calavera.png').open,
-          Rails.root.join('db/images/fire.jpeg').open,
-          Rails.root.join('db/images/stockImage.png').open
-        ]
-
+     
       },
       {
         name: Faker::House.furniture,
         description: Faker::Construction.material,
         good_or_service: Faker::Construction.trade,
-        user_id: 6,
-        images: [
-          Rails.root.join('db/images/calavera.png').open,
-          Rails.root.join('db/images/fire.jpeg').open,
-          Rails.root.join('db/images/stockImage.png').open
-        ]
-
+        user_id: 6
       },
       {
         name: Faker::House.furniture,
         description: Faker::Construction.material,
         good_or_service: Faker::Construction.trade,
         user_id: 7,
-        images: [
-          Rails.root.join('db/images/calavera.png').open,
-          Rails.root.join('db/images/fire.jpeg').open,
-          Rails.root.join('db/images/stockImage.png').open
-        ]
 
       },
       {
@@ -154,31 +118,21 @@ Good.create!([
         description: Faker::Construction.material,
         good_or_service: Faker::Construction.trade,
         user_id: 8,
-        images: [
-          Rails.root.join('db/images/calavera.png').open,
-          Rails.root.join('db/images/fire.jpeg').open,
-          Rails.root.join('db/images/stockImage.png').open
-        ]
       },
       {
         name: Faker::House.furniture,
         description: Faker::Construction.material,
         good_or_service: Faker::Construction.trade,
         user_id: 1,
-        images: [
-          Rails.root.join('db/images/calavera.png').open,
-          Rails.root.join('db/images/fire.jpeg').open,
-          Rails.root.join('db/images/stockImage.png').open
-        ]
 
       }
 ])
 
-# Good.all.each do |good|
-#   image_file_path = Rails.root.join('db/images/stockImage.png')
-#   image = File.open(image_file_path)
-#   good.main_image.attach(io: image, filename: 'stockImage.png')
-# end
+Good.all.each do |good|
+  image_file_path = Rails.root.join('db/images/stockImage.png')
+  image = File.open(image_file_path)
+  good.main_image.attach(io: image, filename: 'stockImage.png')
+end
 
 puts "🤖 Seeding Services..."
 
