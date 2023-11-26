@@ -25,7 +25,7 @@ code {
   background-color: #cebaba; 
   padding: 15px; 
   border-radius: 15px;
-  color: #fff; 
+  color: #ffffff;   
   text-decoration: none; 
   display: inline-block; 
   margin: 5px; 
@@ -44,11 +44,6 @@ code {
   display: flex;
   align-items: left;
 }
-
-/* Add this to your CSS file */
-/* Add or modify the following styles in your CSS file */
-
-/* Add or modify the following styles in your CSS file */
 
 .user-button {
   display: flex;
@@ -92,12 +87,6 @@ code {
   background-color: #0056b3;
 }
 
-/* Add any additional styles for other buttons as needed */
-
-
-
-/* Add or modify the following styles in your CSS */
-
 .full-height-page {
   min-height: 100vh;
   display: flex;
@@ -114,7 +103,7 @@ code {
 
 .pageDescription {
   font-size: 4rem;
-  color: #555;
+  color: #555;  
   text-align: center;
   margin-bottom: 20px;
 }
@@ -156,9 +145,14 @@ code {
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center; /* Center text within the column */
+  text-align: center; 
+  color: #ffffff;
+
 }
 
+.category-column-h1 {
+  color: #ffffff;
+}
 .forum-container {
   display: flex;
   justify-content: center;
@@ -189,7 +183,7 @@ code {
 
 .link {
   text-decoration: none;
-  color: #333; 
+  color: #0b0303; 
 }
 
 .link:hover {

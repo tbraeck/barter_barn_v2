@@ -200,11 +200,11 @@ puts "🤖 Seeding Services..."
     }
   ])
 
-  # Service.all.each do |service|
-  #   image_file_path = Rails.root.join('db/images/barterBarn.png')
-  #   image = File.open(image_file_path)
-  #   service.main_image.attach(io: image, filename: 'barterBarn.png')
-  # end
+  Service.all.each do |service|
+    image_file_path = Rails.root.join('db/images/barterBarn.png')
+    image = File.open(image_file_path)
+    service.main_image.attach(io: image, filename: 'barterBarn.png')
+  end
 
 
 puts "🤖 Seeding Free Stuff..."
@@ -274,6 +274,11 @@ Free.create!([
     }
   ])
 
+  Free.all.each do |free|
+    image_file_path = Rails.root.join('db/images/fire.jpeg')
+    image = File.open(image_file_path)
+    free.main_image.attach(io: image, filename: 'fire.jpeg')
+  end
 
   puts "🤖 Seeding Community Stuff..."
 
@@ -337,6 +342,12 @@ user_id: 8,
 
 
   ])
+
+  Community.all.each do |comm|
+    image_file_path = Rails.root.join('db/images/fire.jpeg')
+    image = File.open(image_file_path)
+    comm.main_image.attach(io: image, filename: 'fire.jpeg')
+  end
   # FreeStuff.all.each do |free_stuff|
   #   image_file_path = Rails.root.join('db/images/calavera.png')
   #   image = File.open(image_file_path)
