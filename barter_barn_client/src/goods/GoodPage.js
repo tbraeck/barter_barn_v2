@@ -19,6 +19,8 @@ const GoodPage = ({ good }) => {
       <div className="full-width-page">
         <h1 className="pageTitle">{selectedGood.name}</h1>
         <p className="pageDescription">Description: {selectedGood.description}</p>
+        <img className='thumbImg' src={selectedGood.image} alt="Free Stuff" />
+
         <button className="crudButton saveButton">SAVE</button>
         <button className="crudButton saveButton">CLAIM</button>
       </div>

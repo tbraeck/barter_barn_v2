@@ -22,7 +22,7 @@ code {
 }
 
 .header-link {
-  background-color: #cebaba; 
+  background-color: #b1aeae; 
   padding: 15px; 
   border-radius: 15px;
   color: #ffffff;   
@@ -153,6 +153,11 @@ code {
 .category-column-h1 {
   color: #ffffff;
 }
+
+.category-column-h1:hover {
+     
+  color: #0a0202;
+}
 .forum-container {
   display: flex;
   justify-content: center;
@@ -188,4 +193,9 @@ code {
 
 .link:hover {
   text-decoration: underline;
+}
+
+.thumbImg{
+  max-width: 50%;
+  height: auto;
 }

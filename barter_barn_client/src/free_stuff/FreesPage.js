@@ -21,6 +21,8 @@ const FreesPage = ({free}) => {
       <div className='pageDdiv'>
         <p className="pageDescription">Description: {selectedFree.description}</p>
       </div>
+      <img className='thumbImg' src={selectedFree.image} alt="Free Stuff" />
+
       <div className='buttonsContainer'>
         <button className="crudButton saveButton">SAVE</button>
         <button className="crudButton saveButton">CLAIM</button>
