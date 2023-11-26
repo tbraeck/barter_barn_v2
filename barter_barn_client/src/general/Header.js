@@ -7,7 +7,7 @@ const Header = ({handleLogout, userComments, setUserComments}) => {
 
   return (
     <div className="headerCont">
-      <img src="/barn.gif" alt="Barter Barn Logo" className="logo" />
+      <img src="/Barn.gif" alt="Barter Barn Logo" className="logo" />
       <div className='navbar'>
         <NavBar user={user} setUser={setUser}  handleLogout={handleLogout} />
       </div>

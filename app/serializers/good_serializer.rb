@@ -1,8 +1,6 @@
-# app/serializers/good_serializer.rb
-
 class GoodSerializer < ActiveModel::Serializer
   include Rails.application.routes.url_helpers 
-
+has_one :user
   attributes :id, :name, :description, :claimant_id, :user_id, :image
 
   def image

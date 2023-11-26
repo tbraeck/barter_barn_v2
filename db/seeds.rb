@@ -129,9 +129,9 @@ Good.create!([
 ])
 
 Good.all.each do |good|
-  image_file_path = Rails.root.join('db/images/stockImage.png')
+  image_file_path = Rails.root.join('db/images/calavera.png')
   image = File.open(image_file_path)
-  good.main_image.attach(io: image, filename: 'stockImage.png')
+  good.main_image.attach(io: image, filename: 'calavera.png')
 end
 
 puts "🤖 Seeding Services..."
