@@ -58,11 +58,32 @@ code {
 }
 
 .user_icon {
-  width: 30px; /* Increased width */
-  height: 30px; /* Increased height */
-  margin-right: 10px; /* Increased margin */
+  width: 30px; 
+  height: 30px; 
+  margin-right: 10px; 
 }
 
+.nav-button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+ 
+}
+
+.button-image {
+  width: 50px; 
+  height: auto; 
+  margin-left: 70px; 
+  transition: transform 0.3s; /* Add a transition for a smooth effect */
+}
+
+.nav-button:hover .button-image {
+  transform: scale(1.2); /* Increase the size on hover */
+}
+
+.nav_f_b{
+margin-left: 60px;
+}
 .user-text {
   font-size: 18px; /* Increased font size */
 }
@@ -95,18 +116,24 @@ code {
   align-items: center;
 }
 
+.full-width-page {
+  max-width: 1200px; /* Adjust as needed */
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
 .pageTitle {
-  font-size: 6rem;
-  color: #333;
+  font-size: 34px;
   margin-bottom: 10px;
 }
 
 .pageDescription {
-  font-size: 4rem;
-  color: #555;  
-  text-align: center;
+  font-size: 26px;
   margin-bottom: 20px;
 }
+
 
 .buttonsContainer {
   display: flex;
@@ -195,7 +222,19 @@ code {
   text-decoration: underline;
 }
 
-.thumbImg{
-  max-width: 50%;
+.thumbImg {
+  max-width: 60%;
   height: auto;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.saveButton {
+  background-color: #4caf50; /* Green color */
+  color: #fff;
+}
+
+.claimButton {
+  background-color: #3498db; /* Blue color */
+  color: #fff;
 }

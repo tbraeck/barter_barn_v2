@@ -1,7 +1,11 @@
+  import React, {useContext} from 'react';
   import { Link, useNavigate } from 'react-router-dom'
+  import { UserContext } from '../context/UserContext.js';
 
-const NavBar = ({user, handleLogout}) => {
+const NavBar = ({handleLogout}) => {
   const navigate = useNavigate();
+  const {user} = useContext(UserContext);
+
 
   const handleLogoutClick = () => {
     fetch("/logout", {
@@ -45,6 +49,13 @@ const NavBar = ({user, handleLogout}) => {
           <button type='submit' onClick={handleLogoutClick} className='btn btn-secondary' >LOGOUT</button>
         </div>
       ) : null}
+
+    <Link to="/create_post" className='btn'>
+        <div  type='button' className='btn btn-secondary' >
+          <img src="/tab.png" alt="User Icon" className='user_icon' />
+          <span className='user-text'>CREATE POST</span>
+        </div>
+      </Link>
     </div>
   </div>
   )

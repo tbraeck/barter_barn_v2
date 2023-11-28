@@ -10,16 +10,16 @@ const FeaturedCard = () => {
   const [randomIndex, setRandomIndex] = useState(0);
   const [isSaved, setIsSaved] = useState(false);
   const { user } = useContext(UserContext);
-  const { allGoods, allServices, allFrees, allCommunities } = useContext(ForumContext);
+  const { allGoods, allServices, allFrees, communities } = useContext(ForumContext);
 
   const handleRandomize = useCallback(() => {
-    const allItems = [...allGoods, ...allServices, ...allFrees, ...allCommunities];
+    const allItems = [...allGoods, ...allServices, ...allFrees, ...communities];
     if (allItems.length > 0) {
       const newIndex = Math.floor(Math.random() * allItems.length);
       setRandomIndex(newIndex);
       setIsSaved(false);
     }
-  }, [allGoods, allServices, allFrees, allCommunities]);
+  }, [allGoods, allServices, allFrees, communities]);
 
   const handleSave = () => {
     if (randomItem) {
@@ -30,9 +30,9 @@ const FeaturedCard = () => {
 
   useEffect(() => {
     handleRandomize();
-  }, [handleRandomize, allGoods, allServices, allFrees, allCommunities]);
+  }, [handleRandomize, allGoods, allServices, allFrees, communities]);
 
-  const allItems = [...allGoods, ...allServices, ...allFrees, ...allCommunities];
+  const allItems = [...allGoods, ...allServices, ...allFrees, ...communities];
   const randomItem = allItems[randomIndex];
 
   return (
@@ -59,3 +59,4 @@ const FeaturedCard = () => {
 };
 
 export default FeaturedCard;
+

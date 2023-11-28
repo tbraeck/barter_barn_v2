@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'; 
 import NavBar from './NavBar'
+import NavigationButtons from './NavigationButtons';
 import { UserContext } from '../context/UserContext'
 
 const Header = ({handleLogout, userComments, setUserComments}) => {
@@ -7,9 +8,13 @@ const Header = ({handleLogout, userComments, setUserComments}) => {
 
   return (
     <div className="headerCont">
-      <img src="/Barn.gif" alt="Barter Barn Logo" className="logo" />
+
+       <a href='http://localhost:4000/' className="logo"> <img src="/Barn.gif" alt="Barter Barn Logo" /></a>      
       <div className='navbar'>
-        <NavBar user={user} setUser={setUser}  handleLogout={handleLogout} />
+        <NavBar  handleLogout={handleLogout} />
+      </div>
+      <div className='nav_f_b'>
+        <NavigationButtons />
       </div>
     </div>
   )
