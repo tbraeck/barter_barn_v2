@@ -53,7 +53,7 @@ const NavBar = ({handleLogout}) => {
       ) : 
       <Link to="/login" className='btn'>
         <div  type='button' className='btn btn-secondary' >
-          <img src="/farmer.png" alt="User Icon" className='user_icon' />
+          <img src="/enter.png" alt="User Icon" className='user_icon' />
           <span className='user-text'>LOGIN</span>
         </div>
       </Link>

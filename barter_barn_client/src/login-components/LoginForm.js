@@ -1,10 +1,14 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
+import { UserContext } from '../context/UserContext.js';
+// import { ForumContext } from '../context/ForumContext.js';
 
 
-const LoginForm = ({ setUser, user}) => {
+const LoginForm = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState([]);
+  const { setUser, user } = useContext(UserContext);
+
 
   const handleSubmit = (e) => {
     e.preventDefault()  

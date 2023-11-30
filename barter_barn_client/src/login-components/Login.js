@@ -17,7 +17,7 @@ const Login = () => {
       <div className="login-form-container">
         {showLogin ? (
           <div>
-            <LoginForm setUser={setUser} user={user}/>
+            <LoginForm />
             <p className="login-account-question">
               Don't have an account?</p> &nbsp;
             <button className="login-toggle-button" onClick={() => setShowLogin(false)}>
