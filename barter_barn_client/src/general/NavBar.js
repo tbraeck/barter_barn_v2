@@ -1,7 +1,7 @@
   import React, {useContext} from 'react';
   import { Link, useNavigate } from 'react-router-dom'
   import { UserContext } from '../context/UserContext.js';
-
+import Login from '../login-components/Login.js';
 const NavBar = ({handleLogout}) => {
   const navigate = useNavigate();
   const {user} = useContext(UserContext);
@@ -35,12 +35,14 @@ const NavBar = ({handleLogout}) => {
         <span className='user-text'>DAILY FEATURED</span>
         </button>
       </Link>
-      <Link to="/user-profile" className='btn'>
-        <div  type='button' className='btn btn-secondary' >
-          <img src="/farmer.png" alt="User Icon" className='user_icon' />
-          <span className='user-text'>ACCOUNT</span>
-        </div>
-      </Link>
+     {user ? (
+       <Link to="/user-profile" className='btn'>
+       <div  type='button' className='btn btn-secondary' >
+         <img src="/farmer.png" alt="User Icon" className='user_icon' />
+         <span className='user-text'>ACCOUNT</span>
+       </div>
+     </Link>
+     ) : null}
 
     
       {user ? (
@@ -48,7 +50,14 @@ const NavBar = ({handleLogout}) => {
           <p className='welcomeText'>Welcome, {user.username}!</p>
           <button type='submit' onClick={handleLogoutClick} className='btn btn-secondary' >LOGOUT</button>
         </div>
-      ) : null}
+      ) : 
+      <Link to="/login" className='btn'>
+        <div  type='button' className='btn btn-secondary' >
+          <img src="/farmer.png" alt="User Icon" className='user_icon' />
+          <span className='user-text'>LOGIN</span>
+        </div>
+      </Link>
+        }
 
     <Link to="/create_post" className='btn'>
         <div  type='button' className='btn btn-secondary' >

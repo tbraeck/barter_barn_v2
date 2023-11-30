@@ -1,59 +1,71 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState,useEffect, useContext } from 'react';
+// import { Link, useNavigate } from 'react-router-dom'
+import { UserContext } from './context/UserContext.js';
+import { ForumContext } from './context/ForumContext.js';
 
 const NewPost = ({
-  forum,
-  allForum,
-  setAllForum,
-  user,
-  setUser
+  forum
 }) => {
 
+  const {user} = useContext(UserContext);
+  const { allGoods, allServices, allFrees, communities, setAllCommunities, setAllGoods, setAllServices, setAllFrees} = useContext(ForumContext)
+  const [selectedType, setSelectedType] = useState('GOOD');
+
   const [goodFormData, setGoodFormData] = useState({
-    title: '',
+    name: '',
     description: '',
-    good_or_service: '',
-    forum_id: forum.id, 
+    claimant_id: ''
   });
 
   const [serviceFormData, setServiceFormData] = useState({
-    title: '',
+    name: '',
     description: '',
-    good_or_service: '',
-    forum_id: forum.id
+    claimant_id: '',
   });
 
   const [freeStuffData, setFreeStuffData] = useState({
-    body: '',
+    name: '',
+    description: '',
     claimant_id: '',
-    forum_id: forum.id
   });
 
-const [freeStuffs, setFreeStuffs] = useState([])
-const [someGoods, setSomeGoods] = useState([])
-const [someServices, setSomeServices] = useState([])
+  const [communityData, setCommunityData] = useState({
+    name: '',
+    description: '',
+    event_date: ''
+  });
+
+// const [freeStuffs, setFreeStuffs] = useState([])
+// const [someGoods, setSomeGoods] = useState([])
+// const [someServices, setSomeServices] = useState([])
 const [imageData, setImageData] = useState(null);
 
   const [errors, setErrors] = useState([]);
 
-  const { title: goodTitle, description: goodDescription, good_or_service: goodOrService } = goodFormData
-  const { title: serviceTitle, description: serviceDescription, good_or_service: serviceOrService } = serviceFormData;
-  const { body: freeStuffBody, claimant_id: freeStuffClaimantId  } = freeStuffData;
-
-
+  const { name: goodName, description: goodDescription, claimant_id: goodClaimantId } = goodFormData
+  const { name: serviceName, description: serviceDescription, claimant_id: serviceClaimantId } = serviceFormData;
+  const { name: freesName, description: freesDescription, claimant_id: freesClaimantId } = freeStuffData;
+  const { name: communityName, description: communityDescription, event_date: communityEventDate } = communityData;
 
   useEffect(() => {
 
-    fetch(`/free_stuffs`)
+    fetch(`/frees`)
     .then(res => res.json())
-    .then(data => setFreeStuffs(data))
+    .then(data => setAllFrees(data))
 
     fetch(`/goods`)
     .then(res => res.json())
-    .then(data => setSomeGoods(data))
+    .then(data => setAllGoods(data))
 
     fetch(`/services`)
     .then(res => res.json())
-    .then(data => setSomeServices(data))
+    .then(data => setAllServices(data))
+
+
+    fetch(`/communities`)
+    .then(res => res.json())
+    .then(data => setAllCommunities(data))
+
   }, [])
 
 
@@ -73,56 +85,81 @@ const [imageData, setImageData] = useState(null);
     setFreeStuffData((prevData) => ({ ...prevData, [name]: value }));
   };
 
+  const handleCommunityChange = (e) => {
+    const { name, value } = e.target;
+    setCommunityData((prevData) => ({ ...prevData, [name]: value }));
+  };
+
   const handleNewGood = (newGood) => {
-    const updatedForums = allForum.map((oneForum) =>
-      oneForum.id === forum.id
+    const updatedForums = allGoods.map((good) =>
+      newGood.id === forum.id
         ? {
-            ...oneForum,
-            goods: [...oneForum.goods, newGood],
+            ...good,
+            goods: [...allGoods, newGood],
           }
-        : oneForum
+        : good
     );
 
-    setAllForum(updatedForums);
+    setAllGoods(updatedForums);
     setGoodFormData({
-      title: '',
+      name: '',
       description: '',
-      good_or_service: 'Good',
+      claimant_id: ''
     });
   };
 
+  
 const handleNewService = (newService) => {
-    const updatedForums = allForum.map((oneForum) =>
-      oneForum.id === forum.id
+    const updatedForums = allServices.map((service) =>
+      newService.id === service.id
         ? {
-            ...oneForum,
-            services: [...oneForum.services, newService],
+            ...service,
+            services: [...allServices, newService],
           }
-        : oneForum
+        : service
     );
 
-    setAllForum(updatedForums);
+    setAllServices(updatedForums);
     setServiceFormData({
-      title: '',
+      name: '',
       description: '',
-      good_or_service: 'Service',
+      claimant_id: ''
     });
   };
 
   const handleNewFreeStuff = (newStuff) => {
-    const updatedForums = allForum.map((oneForum) =>
-      oneForum.id === forum.id  
+    const updatedForums = allFrees.map((stuff) =>
+      newStuff.id === stuff.id  
         ? {
-            ...oneForum,
-            free_stuffs: [...oneForum.free_stuffs, newStuff],
+            ...stuff,
+            free_stuffs: [...allFrees, newStuff],
           }
-        : oneForum
+        : stuff
     );
 
-    setAllForum(updatedForums);
+    setAllFrees(updatedForums);
     setFreeStuffData({
-      body: '',
+      name: '',
+      description: '',
       claimant_id: ''
+    });
+  };
+
+  const handleNewCommunity = (newCommunity) => {
+    const updatedForums = communities.map((com) =>
+      newCommunity.id === com.id  
+        ? {
+            ...com,
+            communities: [...communities, newCommunity],
+          }
+        : com
+    );
+
+    setAllCommunities(updatedForums);
+    setCommunityData({
+      name: '',
+      description: '',
+      event_date: ''
     });
   };
 
@@ -135,10 +172,9 @@ const handleNewService = (newService) => {
     }
     const formData = new FormData();
     formData.append('user_id', user.id);
-    formData.append('forum_id', forum.id);
-    formData.append('title', goodTitle);
+    formData.append('name', goodName);
     formData.append('description', goodDescription);
-    formData.append('good_or_service', goodOrService);
+    formData.append('claimant_id', goodClaimantId )
     formData.append('main_image', imageData);
   
     fetch(`/goods`, {
@@ -177,11 +213,10 @@ const handleNewService = (newService) => {
     }
 
     const formData = new FormData();
-    formData.append('user_id', user.id);
-    formData.append('forum_id', forum.id);
-    formData.append('title', serviceTitle);
+    formData.append('user_id', user.id);  
+    formData.append('name', serviceName);
     formData.append('description', serviceDescription);
-    formData.append('good_or_service', serviceOrService);
+    formData.append('claimant_id', serviceClaimantId )
     formData.append('main_image', imageData);
   
     fetch(`/services`, {
@@ -214,6 +249,7 @@ const handleNewService = (newService) => {
     setImageData(null);
   };
 
+
   const handleSubmitStuff = (e) => {
     e.preventDefault();
     
@@ -224,12 +260,12 @@ const handleNewService = (newService) => {
 
     const formData = new FormData();
     formData.append('user_id', user.id);
-    formData.append('forum_id', forum.id);
-    formData.append('body', freeStuffBody);
-    formData.append('claimant_id', freeStuffClaimantId )
+    formData.append('name', freesName);
+    formData.append('description', freesDescription);
+    formData.append('claimant_id', freesClaimantId )
     formData.append('main_image', imageData);
 
-    fetch(`/free_stuffs`, {
+    fetch(`/frees`, {
       method: 'POST',
       body: (formData), 
     })
@@ -254,28 +290,112 @@ const handleNewService = (newService) => {
       });
   };
 
+  const handleSubmitCommunity = (e) => {
+    e.preventDefault();
+    
+    if (!imageData) {
+      setErrors(['Please attach an image']);
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append('user_id', user.id);
+    formData.append('name', communityName);
+    formData.append('description', communityDescription);
+    formData.append('event_date', communityEventDate )
+    formData.append('main_image', imageData);
+
+    fetch(`/communities`, {
+      method: 'POST',
+      body: (formData), 
+    })
+      .then((r) => {
+        if (r.ok) {
+          r.json().then((newCommunity) => {
+            handleNewCommunity(newCommunity);
+            if (newCommunity.errors) {
+              setErrors(newCommunity.errors);
+            }
+            });
+        } else {
+          r.json().then((err) => setErrors(err.errors));
+          setTimeout(() => {
+            setErrors([null]);
+          }, 3000);
+        }
+      })
+      .catch((error) => {
+        console.error('Error saving stuff:', error);
+        setErrors(['Error saving stuff']);
+      });
+  };
+
 
   return (
-    <div>
-      {forum.id === 1  ? (
-        <div className='newDrawingForm'>
-          <h2 className='newDrawingH2'>
-            <b>New Goods</b>
-          </h2>
-          <form className='form' onSubmit={handleSubmitGood}>
-            <div className='form-field'>
-              <label htmlFor='title'>Title:</label>
+    <div className="new-post-container">
+      <div className="new-post-form">
+        <h1 className="new-post-h1">
+          <b>NEW POST</b>
+        </h1>
+        <h2 className="new-post-h2">What type of post is this?</h2>
+        <div className="radio-buttons">
+          <label>
+          <input
+            type='radio'
+            value='GOOD'
+            name='post_type'
+            checked={selectedType === 'GOOD'}
+            onChange={() => setSelectedType('GOOD')}
+          />
+          GOOD
+          </label>
+          <label>
+          <input
+            type='radio'
+            value='SERVICE'
+            name='post_type'
+            checked={selectedType === 'SERVICE'}
+            onChange={() => setSelectedType('SERVICE')}
+          />
+           SERVICE
+          </label>
+          <label>
+          <input
+            type='radio'
+            value='FREE STUFF'
+            name='post_type'
+            checked={selectedType === 'FREE STUFF'}
+            onChange={() => setSelectedType('FREE STUFF')}
+          />
+          FREE STUFF
+          </label>
+          <label>
+          <input
+            type='radio'
+            value='COMMUNITY'
+            name='post_type'
+            checked={selectedType === 'COMMUNITY'}
+            onChange={() => setSelectedType('COMMUNITY')}
+          />
+          COMMUNITY
+          </label>
+        </div>
+          
+          {selectedType === 'GOOD' && (
+          <form className='form' onSubmit={handleSubmitGood}> 
+           <div className='form-field'>
+              <label htmlFor='name'>NAME:</label>
               <input
                 className='formInput'
                 type='text'
-                name='title'
-                value={goodTitle}
+                name='name'
+                value={goodName}
                 onChange={handleGoodChange}
                 required
               />
             </div>
             <div className='form-field'>
-              <label htmlFor='description'>Description:</label>
+              <label htmlFor='description'>DESCRIPTION:</label>
               <input
                 className='formInput'
                 type='text'
@@ -285,19 +405,8 @@ const handleNewService = (newService) => {
                 required
               />
             </div>
-            <div className='form-field'>
-              <label htmlFor='good_or_service'>Good or Service:</label>
-              <input
-                className='formInput'
-                type='text'
-                name='good_or_service'
-                value={goodOrService}
-                onChange={handleGoodChange}
-                required
-              />
-            </div>
             <div className="form-group">
-                <label> Image:</label>
+                <label> IMAGE:</label>
                 <input type="file"                  
                 accept="image/jpeg, image/png, image/webp" 
                 onChange={(e) => setImageData(e.target.files[0])} />
@@ -307,7 +416,7 @@ const handleNewService = (newService) => {
                     <button onClick={clearImageData}>Clear Image</button>
                   </div>
                 )}
-              </div>
+              </div> 
             <button className='formButton' type='submit'>
               ADD
             </button>
@@ -320,30 +429,25 @@ const handleNewService = (newService) => {
                 ))}
               </div>
             )}
-          </form>
-        </div>
-      ) : null }
+           </form> 
+          )}
+       
 
-       {forum.id === 2 ? (
-        <div className='newDrawingForm'>
-          <h2 className='newDrawingH2'>
-            <b>New Services</b>
-          </h2>
-          <form className='form' onSubmit={handleSubmitService}>
+       {selectedType === 'SERVICE' && (
+        <form className='form' onSubmit={handleSubmitService}>
             <div className='form-field'>
-              <label htmlFor='title'>Title:</label>
+              <label htmlFor='title'>NAME:</label>
               <input
                 className='formInput'
                 type='text'
-                name='title'
-                value={serviceTitle}
+                name='name'
+                value={serviceName}
                 onChange={handleServiceChange}
                 required
-              />
-               
+              /> 
             </div>
             <div className='form-field'>
-              <label htmlFor='description'>Description:</label>
+              <label htmlFor='description'>DESCRIPTION:</label>
               <input
                 className='formInput'
                 type='text'
@@ -353,21 +457,8 @@ const handleNewService = (newService) => {
                 required
               />
             </div>
-            
-            <div className='form-field'>
-              <label htmlFor='good_or_service'>Good or Service:</label>
-              <input
-                className='formInput'
-                type='text'
-                name='good_or_service'
-                value={serviceOrService}
-                onChange={handleServiceChange}
-                required
-              />
-            </div>
-
             <div className="form-group">
-                <label> Image:</label>
+                <label> IMAGE:</label>
                 <input type="file"                  
                 accept="image/jpeg, image/png, image/webp" 
                 onChange={(e) => setImageData(e.target.files[0])} />
@@ -390,29 +481,35 @@ const handleNewService = (newService) => {
                 ))}
               </div>
             )}
-          </form>
-        </div>
-      ) : null }
-
-        {forum.id === 3 ? (
-        <div className='newDrawingForm'>
-          <h2 className='newDrawingH2'>
-            <b>New Stuff</b>
-          </h2>
+           </form>
+        )}
+       
+      {selectedType === 'FREE STUFF' && (
           <form className='form' onSubmit={handleSubmitStuff}>
             <div className='form-field'>
-              <label htmlFor='body'>Body:</label>
+              <label htmlFor='body'>NAME:</label>
               <input
                 className='formInput'
                 type='text'
-                name='body'
-                value={freeStuffBody}
+                name='name'
+                value={freesName}
+                onChange={handleFreeStuffChange}
+                required
+              />
+            </div>
+            <div className='form-field'>
+              <label htmlFor='description'>DESCRIPTION:</label>
+              <input
+                className='formInput'
+                type='text'
+                name='description'
+                value={freesDescription}
                 onChange={handleFreeStuffChange}
                 required
               />
             </div>
             <div className="form-group">
-                <label> Image:</label>
+                <label> IMAGE:</label>
                 <input type="file"                  
                 accept="image/jpeg, image/png, image/webp" 
                 onChange={(e) => setImageData(e.target.files[0])} />
@@ -436,8 +533,70 @@ const handleNewService = (newService) => {
               </div>
             )}
          </form>
-        </div>
-      ) : null }
+      )}
+
+      {selectedType === 'COMMUNITY' && (
+        <form className='form' onSubmit={handleSubmitCommunity}>
+            <div className='form-field'>
+              <label htmlFor='title'>NAME:</label>
+              <input
+                className='formInput'
+                type='text'
+                name='name'
+                value={serviceName}
+                onChange={handleServiceChange}
+                required
+              />   
+            </div>
+            <div className='form-field'>
+              <label htmlFor='description'>DESCRIPTION:</label>
+              <input
+                className='formInput'
+                type='text'
+                name='description'
+                value={serviceDescription}
+                onChange={handleServiceChange}
+                required
+              />
+            </div>
+            <div className='form-field'>
+              <label htmlFor='event_date'>EVENT DATE:</label>
+              <input
+                className='formInput'
+                type='date'
+                name='event_date'
+                value={communityEventDate}
+                onChange={handleCommunityChange}
+                required
+              />
+            </div>
+            <div className="form-group">
+                <label> IMAGE:</label>
+                <input type="file"                  
+                accept="image/jpeg, image/png, image/webp" 
+                onChange={(e) => setImageData(e.target.files[0])} />
+                {imageData && (
+                  <div>
+                      <img src={imageData ? URL.createObjectURL(imageData) : ''} alt="Preview" className='imageThumb' />
+                    <button onClick={clearImageData}>Clear Image</button>
+                  </div>
+                )}
+              </div>
+            <button className='formButton' type='submit'>
+              ADD
+            </button>
+            {errors &&(
+              <div className='error-messages'>
+                {errors.map((error, index) => (
+                  <p key={index} className='error-message'>
+                    {error}
+                  </p>
+                ))}
+              </div>
+            )}
+          </form>
+          )}
+      </div>
     </div>
   );
 };
