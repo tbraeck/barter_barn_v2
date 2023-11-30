@@ -1,11 +1,13 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
+import { UserContext } from '../context/UserContext.js';
+
 import './Login.css'; 
 
-const SignUpForm = ({setUser}) => {
+const SignUpForm = () => {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [passwordConfirmation, setPasswordConfirmation] = useState('')
-    // const [email, setEmail] = useState('')
+    const { setUser, user } = useContext(UserContext);
     const [loading, setLoading] = useState(false)
     const [errors, setErrors] = useState([]);
 
@@ -44,10 +46,10 @@ const SignUpForm = ({setUser}) => {
   return (
     <div  className='login-container'>
       <div >
-    <h2 >Sign Up</h2>
+    <h2 >SIGN UP</h2>
     <form  onSubmit={handleSubmit}>
       <label  htmlFor="username">
-        Username
+        USERNAME
       </label>
       <input
         id="username"
@@ -56,10 +58,10 @@ const SignUpForm = ({setUser}) => {
         value={username}
         onChange={(e) => setUsername(e.target.value)}
         className='form-input'
-      />
+      />  
         <br></br><br></br>
       <label  htmlFor="password">
-        Password
+        PASSWORD
       </label>
       <input
         id="password"
