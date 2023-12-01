@@ -1,12 +1,12 @@
 import React, {useState, useContext} from 'react'
+import { useNavigate} from 'react-router-dom';
 import { UserContext } from '../context/UserContext.js';
-// import { ForumContext } from '../context/ForumContext.js';
-
 
 const LoginForm = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState([]);
+  const navigate = useNavigate();
   const { setUser, user } = useContext(UserContext);
 
 
@@ -24,6 +24,7 @@ const LoginForm = () => {
         if (res.ok) {
           res.json().then((user) => {
             setUser(user);
+            navigate('/');  
           });
         } else {
           res.json().then((error) => setErrors(error.errors))
@@ -58,7 +59,7 @@ const LoginForm = () => {
         className='form-input'
         />
         <button className='form-button' type='submit'>
-          Login
+          LOGIN
         </button>
       </form>
       {errors && (

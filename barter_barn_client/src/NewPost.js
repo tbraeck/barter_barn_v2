@@ -3,9 +3,7 @@ import React, { useState,useEffect, useContext } from 'react';
 import { UserContext } from './context/UserContext.js';
 import { ForumContext } from './context/ForumContext.js';
 
-const NewPost = ({
-  forum
-}) => {
+const NewPost = () => {
 
   const {user} = useContext(UserContext);
   const { allGoods, allServices, allFrees, communities, setAllCommunities, setAllGoods, setAllServices, setAllFrees} = useContext(ForumContext)
@@ -92,7 +90,7 @@ const [imageData, setImageData] = useState(null);
 
   const handleNewGood = (newGood) => {
     const updatedForums = allGoods.map((good) =>
-      newGood.id === forum.id
+      newGood.id === good.id
         ? {
             ...good,
             goods: [...allGoods, newGood],
@@ -144,7 +142,7 @@ const handleNewService = (newService) => {
       claimant_id: ''
     });
   };
-
+console.log(user)
   const handleNewCommunity = (newCommunity) => {
     const updatedForums = communities.map((com) =>
       newCommunity.id === com.id  
@@ -171,8 +169,8 @@ const handleNewService = (newService) => {
       return;
     }
     const formData = new FormData();
-    formData.append('user_id', user.id);
-    formData.append('name', goodName);
+    formData.append('user_id', user?.id || '');   
+     formData.append('name', goodName);
     formData.append('description', goodDescription);
     formData.append('claimant_id', goodClaimantId )
     formData.append('main_image', imageData);

@@ -1,7 +1,8 @@
 class User < ApplicationRecord
     has_many :goods
     has_many :services
-    has_many :free_stuffs
+    has_many :frees
+    has_many :communities
     
     has_secure_password
 

@@ -1,5 +1,5 @@
 class GoodsController < ApplicationController
-  # before_action :set_good, only: %i[ index show update destroy ]
+  skip_before_action :authorize, only: %i[ index show update destroy ]
 
   # GET /goods
   def index

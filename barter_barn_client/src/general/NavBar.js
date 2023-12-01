@@ -1,11 +1,14 @@
   import React, {useContext} from 'react';
   import { Link, useNavigate } from 'react-router-dom'
   import { UserContext } from '../context/UserContext.js';
-import Login from '../login-components/Login.js';
-const NavBar = ({handleLogout}) => {
-  const navigate = useNavigate();
-  const {user} = useContext(UserContext);
 
+  const NavBar = () => {
+  const navigate = useNavigate();
+  const {user, setUser} = useContext(UserContext);
+
+  const handleLogout = ()=> {
+    setUser(null)
+  }
 
   const handleLogoutClick = () => {
     fetch("/logout", {
@@ -15,7 +18,6 @@ const NavBar = ({handleLogout}) => {
       if(r.ok){
         handleLogout(null)
         navigate('/');  
-
       }
     })
   }
@@ -47,7 +49,7 @@ const NavBar = ({handleLogout}) => {
     
       {user ? (
         <div className='btn '>
-          <p className='welcomeText'>Welcome, {user.username}!</p>
+          <h2 className='welcomeText'>Welcome, {user.username}!</h2>
           <button type='submit' onClick={handleLogoutClick} className='btn btn-secondary' >LOGOUT</button>
         </div>
       ) : 

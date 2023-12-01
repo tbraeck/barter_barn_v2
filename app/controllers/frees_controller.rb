@@ -1,5 +1,5 @@
 class FreesController < ApplicationController
-  # skip_before_action :set_free, only: %i[ index show update destroy ]
+  skip_before_action :authorize, only: %i[ index show update destroy ]
 
   # GET /frees
   def index

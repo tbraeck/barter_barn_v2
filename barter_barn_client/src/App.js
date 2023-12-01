@@ -1,5 +1,5 @@
 import React, { useContext} from "react";
-import {Routes, Route, Navigate} from 'react-router-dom';
+import {Routes, Route} from 'react-router-dom';
 import { UserContext } from './context/UserContext.js';
 import { ForumContext } from './context/ForumContext.js';
 import Home from "./general/Home.js";
@@ -22,11 +22,11 @@ const App = () => {
   const {user, setUser} = useContext(UserContext);
   // const { allGoods, allServices, allFrees } = useContext(ForumContext)
 
+  
   return (
     <div className="App">
       <div className='mainContainer'>
         <div className="header">
-            {/* <Header user={user} setUser={setUser} handleLogout={handleLogout} /> */}
             <Header/>
         </div>
           <div>

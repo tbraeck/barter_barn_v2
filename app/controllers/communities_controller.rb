@@ -1,9 +1,8 @@
 class CommunitiesController < ApplicationController
-    before_action :set_community, only: [:show, :edit, :update, :destroy]
+    skip_before_action :authorize, only: [:index, :show,:update, :destroy]
   
     def index
       @communities = Community.all
-
       render json: @communities
     end
   
@@ -25,8 +24,7 @@ class CommunitiesController < ApplicationController
       end
     end
   
-    def edit
-    end
+   
   
     def update
       if @community.update(community_params)

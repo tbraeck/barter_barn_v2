@@ -1,5 +1,5 @@
 class ServicesController < ApplicationController
-  # before_action :set_service, only: %i[ index show update destroy ]
+  skip_before_action :authorize, only: %i[ index show update destroy ]
 
   # GET /services
   def index
