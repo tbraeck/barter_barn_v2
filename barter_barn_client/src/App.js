@@ -48,7 +48,7 @@ const App = () => {
                 <Route path="/users/:user_id/goods/:good_id" element={<EditGoods user={user}  allForum={allForum}/>} />
                 <Route path="/users/:user_id/services/:service_id" element={<EditServices user={user} allForum={allForum}/>} />
                 <Route path="/users/:user_id/free_stuffs/:free_ stuffs_id" element={<EditFreeStuffs user={user}  allForum={allForum}/>} /> */}
-                <Route path="/user-profile"  element={ <UserProfile   user={user} setUser={setUser}/> } /> 
+                <Route path="/user-profile"  element={ <UserProfile /> } /> 
             </Routes>
           </div> 
              

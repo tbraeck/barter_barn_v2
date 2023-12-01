@@ -1,14 +1,9 @@
 import React, { useState, useContext } from 'react';
-import { useNavigate} from 'react-router-dom';
 import LoginForm from './LoginForm';
 import SignUpForm from "./SignUpForm";
 import { UserContext } from '../context/UserContext.js';
-import { ForumContext } from '../context/ForumContext.js';
-// import './Login.css'; 
 
 const Login = () => {
-  const navigate = useNavigate();
-
   const [showLogin, setShowLogin] = useState(true);
   const { setUser, user } = useContext(UserContext);
 

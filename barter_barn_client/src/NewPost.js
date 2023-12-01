@@ -64,8 +64,7 @@ const [imageData, setImageData] = useState(null);
     .then(res => res.json())
     .then(data => setAllCommunities(data))
 
-  }, [])
-
+  }, [setAllGoods, setAllFrees, setAllCommunities, setAllServices])
 
 
   const handleGoodChange = (e) => {
@@ -211,12 +210,12 @@ console.log(user)
     }
 
     const formData = new FormData();
-    formData.append('user_id', user.id);  
+    formData.append('user_id', user?.id || '');   
     formData.append('name', serviceName);
     formData.append('description', serviceDescription);
     formData.append('claimant_id', serviceClaimantId )
     formData.append('main_image', imageData);
-  
+    
     fetch(`/services`, {
       method: 'POST',
       body: (formData),
@@ -257,7 +256,7 @@ console.log(user)
     }
 
     const formData = new FormData();
-    formData.append('user_id', user.id);
+    formData.append('user_id', user?.id || '');   
     formData.append('name', freesName);
     formData.append('description', freesDescription);
     formData.append('claimant_id', freesClaimantId )
@@ -297,7 +296,7 @@ console.log(user)
     }
 
     const formData = new FormData();
-    formData.append('user_id', user.id);
+    formData.append('user_id', user?.id || '');   
     formData.append('name', communityName);
     formData.append('description', communityDescription);
     formData.append('event_date', communityEventDate )
@@ -469,7 +468,7 @@ console.log(user)
               </div>
             <button className='formButton' type='submit'>
               ADD
-            </button>
+            </button>   
             {errors &&(
               <div className='error-messages'>
                 {errors.map((error, index) => (
@@ -541,8 +540,8 @@ console.log(user)
                 className='formInput'
                 type='text'
                 name='name'
-                value={serviceName}
-                onChange={handleServiceChange}
+                value={communityName}
+                onChange={handleCommunityChange}
                 required
               />   
             </div>
@@ -552,8 +551,8 @@ console.log(user)
                 className='formInput'
                 type='text'
                 name='description'
-                value={serviceDescription}
-                onChange={handleServiceChange}
+                value={communityDescription}
+                onChange={handleCommunityChange}
                 required
               />
             </div>

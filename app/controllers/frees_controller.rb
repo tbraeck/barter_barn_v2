@@ -46,6 +46,6 @@ class FreesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def free_params
-      params.require(:free).permit(:name, :description, :claimant_id, :user_id)
+      params.permit(:name, :description, :claimant_id, :user_id, :main_image)
     end 
 end

@@ -1,5 +1,5 @@
 class CommunitiesController < ApplicationController
-    skip_before_action :authorize, only: [:index, :show,:update, :destroy]
+    skip_before_action :authorize, only: [:index, :show, :update, :destroy]
   
     def index
       @communities = Community.all
@@ -8,24 +8,22 @@ class CommunitiesController < ApplicationController
   
     def show
       render json: @community
-
     end
   
-    def new
-      @community = Community.new
-    end
+    # def new
+    #   @community = Community.new
+    # end
   
     def create
       @community = Community.new(community_params)
       if @community.save
-        redirect_to @community, notice: 'Community was successfully created.'
+        render json: @community, status: :created, location: @community
       else
-        render :new
+        render json: @community.errors, status: :unprocessable_entity
       end
     end
-  
-   
-  
+
+    
     def update
       if @community.update(community_params)
         redirect_to @community, notice: 'Community was successfully updated.'
@@ -46,7 +44,7 @@ class CommunitiesController < ApplicationController
     end
   
     def community_params
-      params.require(:community).permit(:name, :description, :main_image)
+      params.permit(:name, :description, :event_date, :main_image, :user_id)
     end
   end
   

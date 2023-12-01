@@ -4,7 +4,6 @@ class ServicesController < ApplicationController
   # GET /services
   def index
     @services = Service.all
-
     render json: @services
   end
 
@@ -46,6 +45,6 @@ class ServicesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def service_params
-      params.require(:service).permit(:name, :description, :claimant_id, :user_id )
+      params.permit(:name, :description, :claimant_id, :user_id, :main_image )
     end
 end
