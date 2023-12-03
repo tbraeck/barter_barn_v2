@@ -5,7 +5,6 @@ import { UserContext } from '../context/UserContext.js';
 const UserProfile = () => {
   const {user} = useContext(UserContext);
 
-
   if (!user || !user.goods || !user.services || !user.frees || !user.communities) {
     return <p>Loading...</p>;
   }
@@ -23,14 +22,12 @@ const usersGoods = user.goods ? (
 
 const usersServices = user.services ? (
 user.services.map(service => (
-
   <div key={service.id} className="user-link">
           <Link to={`/services/${service.id}`} className="forum-item">
             <h1>{service.name}</h1>
           </Link>
           <button className='btn btn-primary'>DELETE</button>
     </div>
- 
 )) ) : null;
 
 const usersFrees = user.frees ? (

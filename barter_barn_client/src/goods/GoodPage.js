@@ -14,15 +14,17 @@ const GoodPage = ({ good }) => {
     return <div>Loading...</div>; // You can customize the loading state or handle errors
   }
 
+  const handleContact =() => {
+    
+  }
+
   return (
     <div className="full-height-page">
       <div className="full-width-page">
         <h1 className="pageTitle">{selectedGood.name}</h1>
         <p className="pageDescription">Description: {selectedGood.description}</p>
         <img className='thumbImg' src={selectedGood.image} alt="Free Stuff" />
-
-        {/* <button className="crudButton saveButton">SAVE</button>
-        <button className="crudButton saveButton">CLAIM</button> */}
+        <button className="crudButton saveButton" onClick={handleContact}>CONTACT USER</button> 
       </div>
     </div>  
   );

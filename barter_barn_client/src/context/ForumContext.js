@@ -7,7 +7,7 @@ function ForumProvider({ children }) {
   const [allServices, setAllServices] = useState([]);
   const [allFrees, setAllFrees] = useState([]);
   const [communities, setAllCommunities] = useState([]);
-
+const [comments, setAllComments] = useState([]);
 
   useEffect(()=> {
     fetch("/goods").then((res)=> {

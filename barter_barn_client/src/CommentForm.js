@@ -1,98 +1,42 @@
 import React, { useState,useEffect, useContext } from 'react';
-// import { Link, useNavigate } from 'react-router-dom'
 import { UserContext } from './context/UserContext.js';
 import { ForumContext } from './context/ForumContext.js';
 
-const NewPost = () => {
+const CommentForm = () => {
 
   const {user} = useContext(UserContext);
-  const { setAllCommunities, setAllGoods, setAllServices, setAllFrees} = useContext(ForumContext)
+  const { setAllComments} = useContext(ForumContext)
   const [selectedType, setSelectedType] = useState('GOOD');
 
-  const [goodFormData, setGoodFormData] = useState({
+  const [commentFormData, setCommentFormData] = useState({
     name: '',
-    description: '',
-    claimant_id: ''
+    comment: ''
   });
-
-  const [serviceFormData, setServiceFormData] = useState({
-    name: '',
-    description: '',
-    claimant_id: '',
-  });
-
-  const [freeStuffData, setFreeStuffData] = useState({
-    name: '',
-    description: '',
-    claimant_id: '',
-  });
-
-  const [communityData, setCommunityData] = useState({
-    name: '',
-    description: '',
-    event_date: ''
-  });
-
-// const [freeStuffs, setFreeStuffs] = useState([])
-// const [someGoods, setSomeGoods] = useState([])
-// const [someServices, setSomeServices] = useState([])
-const [imageData, setImageData] = useState(null);
 
   const [errors, setErrors] = useState([]);
-
-  const { name: goodName, description: goodDescription, claimant_id: goodClaimantId } = goodFormData
-  const { name: serviceName, description: serviceDescription, claimant_id: serviceClaimantId } = serviceFormData;
-  const { name: freesName, description: freesDescription, claimant_id: freesClaimantId } = freeStuffData;
-  const { name: communityName, description: communityDescription, event_date: communityEventDate } = communityData;
-
+  const { name, comment} = commentFormData
+  
   useEffect(() => {
 
     fetch(`/frees`)
     .then(res => res.json())
     .then(data => setAllFrees(data))
 
-    fetch(`/goods`)
-    .then(res => res.json())
-    .then(data => setAllGoods(data))
-
-    fetch(`/services`)
-    .then(res => res.json())
-    .then(data => setAllServices(data))
-
-
-    fetch(`/communities`)
-    .then(res => res.json())
-    .then(data => setAllCommunities(data))
-
   }, [setAllGoods, setAllFrees, setAllCommunities, setAllServices])
 
 
-  const handleGoodChange = (e) => {
+  const handleCommentChange = (e) => {
     const { name, value } = e.target;
-    setGoodFormData((prevData) => ({ ...prevData, [name]: value }));
+    setCommentFormData((prevData) => ({ ...prevData, [name]: value }));
   };
 
-  const handleServiceChange = (e) => {
-    const { name, value } = e.target;
-    setServiceFormData((prevData) => ({ ...prevData, [name]: value }));
-  };
+  
 
-  const handleFreeStuffChange = (e) => {
-    const { name, value } = e.target;
-    setFreeStuffData((prevData) => ({ ...prevData, [name]: value }));
-  };
-
-  const handleCommunityChange = (e) => {
-    const { name, value } = e.target;
-    setCommunityData((prevData) => ({ ...prevData, [name]: value }));
-  };
-
-  const handleNewGood = (newGood) => {
-      setAllGoods((prevGoods) => [...prevGoods, newGood]);
-      setGoodFormData({
+  const handleNewComment = (newComment) => {
+      setAllComments((prevComments) => [...prevComments, newComment]);
+      setCommentFormData({
         name: '',
-        description: '',
-        claimant_id: ''
+        comment: '',
       });
     };
     
@@ -558,7 +502,11 @@ const [imageData, setImageData] = useState(null);
           )}
       </div>
     </div>
-  );
-};
+ 
 
-export default NewPost;
+
+   
+  )
+}
+
+export default CommentForm
