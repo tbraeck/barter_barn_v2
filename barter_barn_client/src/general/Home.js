@@ -2,6 +2,7 @@
   import { Link} from 'react-router-dom';
   import { UserContext } from '../context/UserContext.js';
   import { ForumContext } from '../context/ForumContext.js';
+import SearchBar from './SearchBar.js';
 
   const Home = () => {
     const {user, setUser} = useContext(UserContext);
@@ -42,6 +43,7 @@
 
     return (
       <div className="home">
+        <div className='searchBar'><SearchBar/></div>
         <div className="background-image"></div>
         <div className="content">
           {/* Gray box for the header */}

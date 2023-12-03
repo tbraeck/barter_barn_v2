@@ -17,6 +17,7 @@ import FreesPage from "./free_stuff/FreesPage.js";
 import FeatureCard from "./FeatureCard.js";
 import NewPost from "./NewPost.js";
 import Login from "./login-components/Login.js";
+import SearchResults from "./general/SearchResults.js";
 
 const App = () => {
   const {user, setUser} = useContext(UserContext);
@@ -44,6 +45,7 @@ const App = () => {
                 <Route path="/featured" element={<FeatureCard   />} />
                 <Route path="/create_post" element={<NewPost/>}/>
                 <Route path="/login" element={<Login />}/>
+                <Route path="/searchResults" element={<SearchResults />}/>
                 {/* <Route path="/forums/:id/edit" element={<ForumCard allForum={allForum} setAllForum={setAllForum} />}/> 
                 <Route path="/users/:user_id/goods/:good_id" element={<EditGoods user={user}  allForum={allForum}/>} />
                 <Route path="/users/:user_id/services/:service_id" element={<EditServices user={user} allForum={allForum}/>} />
