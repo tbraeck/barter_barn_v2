@@ -21,8 +21,8 @@ const Community = ({ good }) => {
         <p className="pageDescription">Description: {selectedCommunity.description}</p>
         <p className="pageDescription">Date: {selectedCommunity.event_date}</p>
         <img className='thumbImg' src={selectedCommunity.image} alt="Free Stuff" />
-        <button className="crudButton saveButton">SAVE</button>
-        <button className="crudButton saveButton">CLAIM</button>
+        {/* <button className="crudButton saveButton">SAVE</button>
+        <button className="crudButton saveButton">CLAIM</button> */}
       </div>
     </div>  
   );

@@ -20,8 +20,8 @@ const ServicePage = ({service}) => {
         <p className="pageDescription">Description: {selectedService.description}</p>
         <img className='thumbImg' src={selectedService.image} alt="Free Stuff" />
 
-        <button className="crudButton saveButton">SAVE</button>
-        <button className="crudButton saveButton">CLAIM</button>
+        {/* <button className="crudButton saveButton">SAVE</button>
+        <button className="crudButton saveButton">CLAIM</button> */}
       </div>
     </div>
   )

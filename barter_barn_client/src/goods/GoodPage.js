@@ -21,8 +21,8 @@ const GoodPage = ({ good }) => {
         <p className="pageDescription">Description: {selectedGood.description}</p>
         <img className='thumbImg' src={selectedGood.image} alt="Free Stuff" />
 
-        <button className="crudButton saveButton">SAVE</button>
-        <button className="crudButton saveButton">CLAIM</button>
+        {/* <button className="crudButton saveButton">SAVE</button>
+        <button className="crudButton saveButton">CLAIM</button> */}
       </div>
     </div>  
   );

@@ -168,6 +168,8 @@ margin-left: 60px;
   max-width: 500px; 
   border: 1px solid #ccc;
   border-radius: 20px; 
+  box-shadow: 5px 10px #888888;
+
   padding: 10px; 
   display: flex;
   flex-direction: column;
@@ -184,6 +186,10 @@ margin-left: 60px;
 .category-column-h1:hover {
      
   color: #0a0202;
+}
+
+.category-column-h1-user{
+  color: #090909;
 }
 .forum-container {
   display: flex;
@@ -251,6 +257,7 @@ margin-left: 60px;
   width: 400px;
   padding: 20px;
   border: 1px solid #ccc;
+  box-shadow: 5px 10px #888888;
   border-radius: 8px;
 }
 
@@ -314,5 +321,14 @@ margin-left: 60px;
 }
 
 .user-link{
-  color: violet;
+  color: rgb(73, 28, 236);
+}
+
+.user-h1{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  /* background-color: #4da4fc;  */
+  /* color: whte;  */
 }

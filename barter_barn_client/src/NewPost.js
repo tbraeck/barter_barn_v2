@@ -88,77 +88,40 @@ const [imageData, setImageData] = useState(null);
   };
 
   const handleNewGood = (newGood) => {
-    const updatedForums = allGoods.map((good) =>
-      newGood.id === good.id
-        ? {
-            ...good,
-            goods: [...allGoods, newGood],
-          }
-        : good
-    );
+      setAllGoods((prevGoods) => [...prevGoods, newGood]);
+      setGoodFormData({
+        name: '',
+        description: '',
+        claimant_id: ''
+      });
+    };
+    
+    const handleNewService = (newService) => {
+      setAllServices((prevServices) => [...prevServices, newService]);
+      setServiceFormData({
+        name: '',
+        description: '',
+        event_date: ''
+      });
+    };
 
-    setAllGoods(updatedForums);
-    setGoodFormData({
-      name: '',
-      description: '',
-      claimant_id: ''
-    });
-  };
+    const handleNewFreeStuff = (newFree) => {
+      setAllFrees((prevFrees) => [...prevFrees, newFree]);
+      setFreeStuffData({
+        name: '',
+        description: '',
+        claimant_id: ''
+      });
+    };
 
-  
-const handleNewService = (newService) => {
-    const updatedForums = allServices.map((service) =>
-      newService.id === service.id
-        ? {
-            ...service,
-            services: [...allServices, newService],
-          }
-        : service
-    );
-
-    setAllServices(updatedForums);
-    setServiceFormData({
-      name: '',
-      description: '',
-      claimant_id: ''
-    });
-  };
-
-  const handleNewFreeStuff = (newStuff) => {
-    const updatedForums = allFrees.map((stuff) =>
-      newStuff.id === stuff.id  
-        ? {
-            ...stuff,
-            free_stuffs: [...allFrees, newStuff],
-          }
-        : stuff
-    );
-
-    setAllFrees(updatedForums);
-    setFreeStuffData({
-      name: '',
-      description: '',
-      claimant_id: ''
-    });
-  };
-console.log(user)
-  const handleNewCommunity = (newCommunity) => {
-    const updatedForums = communities.map((com) =>
-      newCommunity.id === com.id  
-        ? {
-            ...com,
-            communities: [...communities, newCommunity],
-          }
-        : com
-    );
-
-    setAllCommunities(updatedForums);
-    setCommunityData({
-      name: '',
-      description: '',
-      event_date: ''
-    });
-  };
+    const handleNewCommunity = (newCommunity) => {
+      setAllCommunities((prevCommunites) => [...prevCommunites, newCommunity]);
+      setCommunityData({
+        name: '',
+        description: '',
+        event_date: ''
+      });
+    };
 
   const handleSubmitGood = (e) => {
     e.preventDefault();
