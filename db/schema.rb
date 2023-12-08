@@ -39,13 +39,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_07_040449) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "comments", force: :cascade do |t|
-    t.string "name"
-    t.text "comment"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "communities", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -86,6 +79,9 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_07_040449) do
   end
 
   create_table "messages", force: :cascade do |t|
+    t.integer "sender_id"
+    t.integer "recipient_id"
+    t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -113,4 +109,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_07_040449) do
   add_foreign_key "forums", "frees"
   add_foreign_key "forums", "goods"
   add_foreign_key "forums", "services"
+  add_foreign_key "messages", "users", column: "recipient_id"
+  add_foreign_key "messages", "users", column: "sender_id"
 end

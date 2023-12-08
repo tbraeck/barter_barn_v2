@@ -35,7 +35,6 @@ const Chat = ({ currentUser, recipientUser }) => {
         body: JSON.stringify(newMessage),
       });
 
-      // Fetch updated messages after sending the new message
       fetchMessages();
     } catch (error) {
       console.error('Error sending message:', error);
