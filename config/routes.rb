@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :goods
   resources :forums 
   resources :communities
+  resources :messages, only: [:index, :create]
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   post "/signup", to: "users#create"
   get "/me", to: "users#show"

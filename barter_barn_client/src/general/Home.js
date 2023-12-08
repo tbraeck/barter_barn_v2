@@ -1,12 +1,10 @@
   import React, {useContext} from 'react';
   import { Link} from 'react-router-dom';
-  import { UserContext } from '../context/UserContext.js';
   import { ForumContext } from '../context/ForumContext.js';
 import SearchBar from './SearchBar.js';
 
   const Home = () => {
-    const {user, setUser} = useContext(UserContext);
-    const { allGoods, allServices, allFrees, communities,  setAllGoods, setAllServices, setAllFrees } = useContext(ForumContext)
+    const { allGoods, allServices, allFrees, communities } = useContext(ForumContext)
     
     const forumGoods = allGoods.map((good) => (
       <div key={good.id} className="forum-item">
@@ -42,11 +40,10 @@ import SearchBar from './SearchBar.js';
     
 
     return (
-      <div className="home">
+      <div className="home">x
         <div className='searchBar'><SearchBar/></div>
         <div className="background-image"></div>
         <div className="content">
-          {/* Gray box for the header */}
           <div className="header-box">
             <div className="mainPageItemsContainer" key="mainPageItemsContainer">
             <div className="category-column" style={{ backgroundColor: '#ffb3ba' }}>

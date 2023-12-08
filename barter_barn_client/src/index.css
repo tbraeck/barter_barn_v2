@@ -165,6 +165,7 @@ margin-left: 60px;
 .category-column {
   flex: 1;
   margin: 0 10px; 
+  align-items: center;
   max-width: 500px; 
   border: 1px solid #ccc;
   border-radius: 20px; 
@@ -173,13 +174,14 @@ margin-left: 60px;
   padding: 10px; 
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-content: center;
   text-align: center; 
   color: #ffffff;
 
 }
 
 .category-column-h1 {
+  align-items: center;
   color: #ffffff;
 }
 
@@ -191,6 +193,19 @@ margin-left: 60px;
 .category-column-h1-user{
   color: #090909;
 }
+.results-column-h1 {
+  margin: 0;
+  text-align: center;
+}
+
+.results-column-h1:hover {
+  color: #0a0202;
+}
+
+.results-column-h1-user {
+  color: #090909;
+}
+
 .forum-container {
   display: flex;
   justify-content: center;
@@ -333,14 +348,52 @@ margin-left: 60px;
   /* color: whte;  */
 }
 
-.searchBar{
+.searchBar {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 10px 10px 10px 10px;
-margin-top: 10px;
-  width: 300px;
+  margin: 10px auto; 
+  width: 400px;
+  font-size: 24px;
+  padding: 10px;
   border: 1px solid #ccc;
   box-shadow: 5px 5px #888888;
   border-radius: 8px;
 }
+
+.searchbar label {
+  padding-right: 20px; /* Adjust the padding as needed */
+}
+
+
+
+
+.searchResultsContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+}
+
+.searchResultDiv {
+  flex: 1;
+  flex-direction: row;
+  margin: 10px;
+  justify-content: center;
+  align-items: center; 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+
+.searchbar .searchResultsContainer {
+  justify-content: center; /* Center the header links horizontally */
+}
+
+.contentContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+

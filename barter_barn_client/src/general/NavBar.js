@@ -60,13 +60,14 @@
         </div>
       </Link>
         }
-
+{user ? (
     <Link to="/create_post" className='btn'>
         <div  type='button' className='btn btn-secondary' >
           <img src="/tab.png" alt="User Icon" className='user_icon' />
           <span className='user-text'>CREATE POST</span>
         </div>
       </Link>
+       ) : null}
     </div>
   </div>
   )

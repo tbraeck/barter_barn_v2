@@ -17,9 +17,9 @@ const SearchBar = () => {
   const handleSearch = () => {
     const filteredItems = searchTerm ? filterItems(searchTerm) : allItems;
     setSearchResults(filteredItems);
-
+  
     if (searchTerm) {
-      navigate('/searchResults');
+      navigate('/searchResults', { state: { searchResults: filteredItems } });
     }
   };
 
@@ -46,7 +46,7 @@ const SearchBar = () => {
 
   return (
     <div className="searchbar">
-      <label htmlFor="search">SEARCH:</label>
+      <label  htmlFor="search">🔎</label>
       <input
         type="text"
         id="search"
@@ -55,38 +55,74 @@ const SearchBar = () => {
         onChange={onSearchChange}
         onKeyPress={(e) => e.key === 'Enter' && handleSearch()}
       />
-
-      {Object.entries(searchResults).map(([category, items]) => (
-        <div key={category}>
-          <h3>{category}</h3>
-          <ul>
+ <div className="searchResultsContainer" key="searchResultsContainer">
+    {Object.entries(searchResults).map(([category, items]) => (
+        <div key={category} className='searchResultDiv'>
+          {category === 'allGoods' && (
+            <Link to={`/goods`} className="link header-link">
+            <h1 className='results-column-h1'>GOODS</h1>
+          </Link>
+          )}
+          {category === 'allServices' && (
+            <Link to={`/services`} className="link header-link">
+            <h1 className='results-column-h1'>SERVICES</h1>
+          </Link>
+          )}
+          {category === 'allFrees' && (
+             <Link to={`/frees`} className="link header-link">
+             <h1 className='results-column-h1'>FREE STUFF</h1>
+           </Link>
+          )}
+          {category === 'communities' && (
+             <Link to={`/communities`} className="link header-link">
+             <h1 className='results-column-h1'>COMMUNITY</h1>
+           </Link>
+          )}
+          <div className="contentContainer">
             {items.map((item) => (
-              <li key={item.id}>
+             <ul>
                 {category === 'allGoods' && (
-                  <Link to={`/goods/${item.id}`} className="link">
+                 <div className="category-column" style={{ backgroundColor: '#ffb3ba' }}>
+                 <h2 key={item.id}>
+                    <Link to={`/goods/${item.id}`} className="link">
                     {item.name}
                   </Link>
+                  </h2>
+                  </div>
                 )}
                 {category === 'allServices' && (
-                  <Link to={`/services/${item.id}`} className="link">
-                    {item.name}
-                  </Link>
+                <div className="category-column" style={{ backgroundColor: '#ffdfba' }}>
+                    <h2 key={item.id}>
+                        <Link to={`/services/${item.id}`} className="link">
+                            {item.name}
+                        </Link>
+                  </h2>
+                </div>
                 )}
                 {category === 'allFrees' && (
-                  <Link to={`/frees/${item.id}`} className="link">
-                    {item.name}
-                  </Link>
+                <div className="category-column" style={{ backgroundColor: '#ffffba' }}>
+                    <h2 key={item.id}>
+                        <Link to={`/frees/${item.id}`} className="link">
+                            {item.name}
+                        </Link>
+                    </h2>
+                  </div>
                 )}
                 {category === 'communities' && (
-                  <Link to={`/communities/${item.id}`} className="link">
-                    {item.name}
-                  </Link>
+                  <div className="category-column" style={{ backgroundColor: '#baffc9' }}>
+                    <h2 key={item.id}>
+                        <Link to={`/communities/${item.id}`} className="link">
+                            {item.name}
+                        </Link>
+                  </h2>
+                  </div>
                 )}
-              </li>
+                </ul>
             ))}
-          </ul>
+          </div>
         </div>
       ))}
+    </div>
     </div>
   );
 };
