@@ -11,14 +11,18 @@ const GoodPage = ({ good }) => {
 
   const { id } = useParams();
   const selectedGood = allGoods.find((good) => good.id === parseInt(id));
-  const [showCommentForm, setShowCommentForm] = useState(false);
+  const [showMessageForm, setShowMessageForm] = useState(false);
 
   if (!selectedGood) {
     return <div>Loading...</div>;
   }
 
   const handleContact =() => {
-        setShowCommentForm(true);
+        setShowMessageForm(true);
+  }
+
+  const handleSend =() => {
+    setShowMessageForm(false)
   }
 
   return (
@@ -28,7 +32,7 @@ const GoodPage = ({ good }) => {
         <p className="pageDescription">Description: {selectedGood.description}</p>
         <img className='thumbImg' src={selectedGood.image} alt="Free Stuff" />
         <button className="crudButton saveButton" onClick={handleContact}>REPLY</button> 
-        {showCommentForm && <Chat />}
+        {showMessageForm && <Chat handleSend={handleSend}/>}
       </div>
     </div>  
   );

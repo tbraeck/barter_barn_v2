@@ -1,4 +1,3 @@
-// MessageList.js
 import React from 'react';
 
 const MessageList = ({ messages, currentUser }) => {

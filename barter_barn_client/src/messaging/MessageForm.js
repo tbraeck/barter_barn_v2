@@ -1,13 +1,13 @@
-// MessageForm.js
 import React, { useState } from 'react';
 
-const MessageForm = ({ sendMessage }) => {
+const MessageForm = ({ sendMessage, handleSend }) => {
   const [content, setContent] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
     sendMessage(content);
     setContent('');
+   handleSend()
   };
 
   return (
@@ -17,7 +17,7 @@ const MessageForm = ({ sendMessage }) => {
         value={content}
         onChange={(e) => setContent(e.target.value)}
       />
-      <button type="submit">Send</button>
+      <button type="submit" >SEND</button>
     </form>
   );
 };
