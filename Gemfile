@@ -19,7 +19,8 @@ gem 'bcrypt', '~> 3.1'
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
-
+gem 'cssbundling-rails'
+gem 'esbuild-rails'
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 
