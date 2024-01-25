@@ -13,15 +13,17 @@
 # gem "pg"
 #
 default: &default
-  adapter: postgresql
-  encoding: unicode
-  # For details on connection pooling, see Rails configuration guide
-  # https://guides.rubyonrails.org/configuring.html#database-pooling
+  adapter: sqlite3
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
 
 development:
   <<: *default
-  database: barter_barn_v2_development
+  database: db/development.sqlite3
+
+test:
+  <<: *default
+  database: db/test.sqlite3
 
   # The specified database role being used to connect to PostgreSQL.
   # To create additional roles in PostgreSQL see `$ createuser --help`.
@@ -78,7 +80,5 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
-  <<: *default
-  database: barter_barn_v2_production
-  username: barter_barn_v2
-  password: <%= ENV["BARTER_BARN_V2_DATABASE_PASSWORD"] %>
+  url: <%= ENV["DATABASE_URL"] || "postgres://barter_barn_v2:#{ENV['BARTER_BARN_V2_DATABASE_PASSWORD']}@localhost/barter_barn_v2_production" %>
+
