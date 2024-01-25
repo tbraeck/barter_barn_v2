@@ -3,27 +3,26 @@ import { UserContext } from '../context/UserContext.js';
 import { ForumContext } from '../context/ForumContext.js';
 import { useParams } from 'react-router-dom';
 // import CommentForm from '../CommentForm.js';
-import Chat from '../messaging/Chat.js';
 
 const GoodPage = ({ good }) => {
-  const { user, setUser } = useContext(UserContext);
+  // const { user, setUser } = useContext(UserContext);
   const { allGoods } = useContext(ForumContext);
 
   const { id } = useParams();
   const selectedGood = allGoods.find((good) => good.id === parseInt(id));
-  const [showMessageForm, setShowMessageForm] = useState(false);
+  // const [showMessageForm, setShowMessageForm] = useState(false);
 
   if (!selectedGood) {
     return <div>Loading...</div>;
   }
 
-  const handleContact =() => {
-        setShowMessageForm(true);
-  }
+  // const handleContact =() => {
+  //       setShowMessageForm(true);
+  // }
 
-  const handleSend =() => {
-    setShowMessageForm(false)
-  }
+  // const handleSend =() => {
+  //   setShowMessageForm(false)
+  // }
 
   return (
     <div className="full-height-page">
@@ -31,8 +30,7 @@ const GoodPage = ({ good }) => {
         <h1 className="pageTitle">{selectedGood.name}</h1>
         <p className="pageDescription">Description: {selectedGood.description}</p>
         <img className='thumbImg' src={selectedGood.image} alt="Free Stuff" />
-        <button className="crudButton saveButton" onClick={handleContact}>REPLY</button> 
-        {showMessageForm && <Chat handleSend={handleSend}/>}
+        {/* <button className="crudButton saveButton" onClick={handleContact}>REPLY</button>  */}
       </div>
     </div>  
   );
