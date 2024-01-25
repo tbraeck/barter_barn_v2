@@ -1,7 +1,5 @@
 import React, { useContext} from "react";
 import {Routes, Route} from 'react-router-dom';
-import { UserContext } from './context/UserContext.js';
-import { ForumContext } from './context/ForumContext.js';
 import Home from "./general/Home.js";
 import Footer from "./general/Footer.js";
 import Header from "./general/Header.js";
@@ -20,9 +18,6 @@ import Login from "./login-components/Login.js";
 import SearchResults from "./general/SearchResults.js";
 
 const App = () => {
-  const {user, setUser} = useContext(UserContext);
-  // const { allGoods, allServices, allFrees } = useContext(ForumContext)
-
   
   return (
     <div className="App">

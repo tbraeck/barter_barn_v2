@@ -5,7 +5,7 @@ import { UserContext } from '../context/UserContext.js';
 
 const Login = () => {
   const [showLogin, setShowLogin] = useState(true);
-  const { setUser, user } = useContext(UserContext);
+  const { setUser } = useContext(UserContext);
 
   return (
     <div className='login-page'>
