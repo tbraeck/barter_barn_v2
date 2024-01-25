@@ -270,7 +270,7 @@ DEPENDENCIES
   cssbundling-rails
   devise
   devise-jwt
-  esbuild-rails
+  esbuild-rails (~> 0.1.4)
   faker (~> 2.20)
   image_processing (~> 1.2)
   pg (~> 1.1)
