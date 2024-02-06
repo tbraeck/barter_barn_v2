@@ -20,7 +20,7 @@ gem 'bcrypt', '~> 3.1'
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 gem 'cssbundling-rails'
-gem 'esbuild-rails', '~> 0.1.4'
+
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 
@@ -44,8 +44,7 @@ gem 'active_model_serializers'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'sqlite3'
+  gem 'byebug'
 
 end
 

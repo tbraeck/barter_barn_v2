@@ -11,7 +11,6 @@ default: &default
 
 development:
   <<: *default
-<<<<<<< HEAD
   database: db/development.sqlite3
 
 test:
@@ -44,9 +43,6 @@ test:
   #   log, notice, warning, error, fatal, and panic
   # Defaults to warning.
   #min_messages: notice
-=======
-  database: storage/development.sqlite3
->>>>>>> parent of 390f71d (render deploying front and backend)
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -56,10 +52,5 @@ test:
   database: storage/test.sqlite3
 
 production:
-<<<<<<< HEAD
-  url: <%= ENV["DATABASE_URL"] || "postgres://barter_barn_v2:#{ENV['BARTER_BARN_V2_DATABASE_PASSWORD']}@localhost/barter_barn_v2_production" %>
-
-=======
   <<: *default
   database: storage/production.sqlite3
->>>>>>> parent of 390f71d (render deploying front and backend)
