@@ -10,6 +10,7 @@ const Header = ({handleLogout, userComments, setUserComments}) => {
 
   return (
     <div className="headerCont">
+
        <a href='http://localhost:4000/' className="logo"> <img src="/Barn.gif" alt="Barter Barn Logo" /></a>      
       <div className='navbar'>
         <NavBar  handleLogout={handleLogout} />

@@ -152,7 +152,7 @@ margin-left: 60px;
 
 .home {
   position: relative;
-  height: 90vh;   
+  height: 90vh; 
 }
 
 .mainPageItemsContainer {
@@ -364,6 +364,9 @@ margin-left: 60px;
 .searchbar label {
   padding-right: 20px; /* Adjust the padding as needed */
 }
+
+
+
 
 .searchResultsContainer {
   display: flex;
