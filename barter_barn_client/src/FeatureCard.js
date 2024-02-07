@@ -3,19 +3,23 @@ import GoodPage from './goods/GoodPage.js';
 import ServicePage from './services/ServicePage.js';
 import FreesPage from './free_stuff/FreesPage.js';
 import CommunityPage from './community/Community.js'; 
-import { UserContext } from './context/UserContext.js';
+// import { UserContext } from './context/UserContext.js';
 import { ForumContext } from './context/ForumContext.js';
 
 const FeaturedCard = () => {
   const [randomIndex, setRandomIndex] = useState(0);
   const [isSaved, setIsSaved] = useState(false);
-  const { user } = useContext(UserContext);
+  // const { user } = useContext(UserContext);
   const { allGoods, allServices, allFrees, communities } = useContext(ForumContext);
+
+  let randomItem; // Declare randomItem outside useEffect
 
   const handleRandomize = useCallback(() => {
     const allItems = [...allGoods, ...allServices, ...allFrees, ...communities];
     if (allItems.length > 0) {
       const newIndex = Math.floor(Math.random() * allItems.length);
+      console.log("New Index:", newIndex); // Log the new index
+
       setRandomIndex(newIndex);
       setIsSaved(false);
     }
@@ -32,8 +36,11 @@ const FeaturedCard = () => {
     handleRandomize();
   }, [handleRandomize, allGoods, allServices, allFrees, communities]);
 
-  const allItems = [...allGoods, ...allServices, ...allFrees, ...communities];
-  const randomItem = allItems[randomIndex];
+  if (randomIndex !== null) {
+    const allItems = [...allGoods, ...allServices, ...allFrees, ...communities];
+    randomItem = allItems[randomIndex];
+  }
+  console.log("Random Item:", randomItem);
 
   return (
     <div className="featured-card">
@@ -59,4 +66,3 @@ const FeaturedCard = () => {
 };
 
 export default FeaturedCard;
-

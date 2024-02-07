@@ -40,7 +40,7 @@ import SearchBar from './SearchBar.js';
     
 
     return (
-      <div className="home">x
+      <div className="home">
         <div className='searchBar'><SearchBar/></div>
         <div className="background-image"></div>
         <div className="content">

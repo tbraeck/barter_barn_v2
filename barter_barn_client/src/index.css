@@ -74,7 +74,7 @@ code {
   width: 50px; 
   height: auto; 
   margin-left: 70px; 
-  transition: transform 0.3s; /* Add a transition for a smooth effect */
+  transition: transform 0.3s; 
 }
 
 .nav-button:hover .button-image {
@@ -152,7 +152,7 @@ margin-left: 60px;
 
 .home {
   position: relative;
-  height: 90vh; 
+  height: 100vh; 
 }
 
 .mainPageItemsContainer {
@@ -177,7 +177,12 @@ margin-left: 60px;
   align-content: center;
   text-align: center; 
   color: #ffffff;
+  transition: transform 0.3s; 
 
+}
+
+.category-column:hover  {
+  transform: scale(1.2); /* Increase the size on hover */
 }
 
 .category-column-h1 {
@@ -355,7 +360,7 @@ margin-left: 60px;
   margin: 10px auto; 
   width: 400px;
   font-size: 24px;
-  padding: 10px;
+  padding: 5px;
   border: 1px solid #ccc;
   box-shadow: 5px 5px #888888;
   border-radius: 8px;

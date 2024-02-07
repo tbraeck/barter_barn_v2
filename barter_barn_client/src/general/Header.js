@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'; 
 import NavBar from './NavBar'
 import NavigationButtons from './NavigationButtons';
-import ChatComponent from "../ChatComponent.js";
+// import ChatComponent from "../ChatComponent.js";
 
 import { UserContext } from '../context/UserContext'
 
@@ -18,9 +18,9 @@ const Header = ({handleLogout, userComments, setUserComments}) => {
       <div className='nav_f_b'>
         <NavigationButtons />
       </div>
-      <div>
+      {/* <div>
         <ChatComponent/>
-      </div>
+      </div> */}
     </div>
   )
 }
