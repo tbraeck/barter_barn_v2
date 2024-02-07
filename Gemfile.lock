@@ -178,6 +178,7 @@ GEM
     nokogiri (1.16.2-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
+    pg (1.5.4)
     psych (5.1.2)
       stringio
     puma (6.4.2)
@@ -269,6 +270,7 @@ DEPENDENCIES
   devise-jwt
   faker (~> 2.20)
   image_processing (~> 1.2)
+  pg
   puma (>= 5.0)
   rack-cors
   rails (~> 7.1.2)
