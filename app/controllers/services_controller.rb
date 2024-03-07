@@ -1,5 +1,5 @@
 class ServicesController < ApplicationController
-  skip_before_action :authorize, only: %i[ index show update destroy ]
+  before_action :authorize
 
   # GET /services
   def index
@@ -34,12 +34,14 @@ class ServicesController < ApplicationController
 
   # DELETE /services/1
   def destroy
-    @service.destroy!
+    @service = find_service
+    @service.destroy
+    head :no_content
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_service
+    def find_service
       @service = Service.find(params[:id])
     end
 

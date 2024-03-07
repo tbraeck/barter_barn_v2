@@ -1,5 +1,6 @@
 import React, {useState, useContext} from 'react'
 import { UserContext } from '../context/UserContext.js';
+import { useNavigate} from 'react-router-dom';
 
 import './Login.css'; 
 
@@ -10,6 +11,8 @@ const SignUpForm = () => {
     const { setUser, user } = useContext(UserContext);
     const [loading, setLoading] = useState(false)
     const [errors, setErrors] = useState([]);
+
+    const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -29,8 +32,11 @@ const SignUpForm = () => {
         .then((r) => {
             setLoading(false);
             if (r.ok) {
-                r.json().then((user) => setUser(user))
-            } else {
+                r.json().then((user) => {
+                  setUser(user);
+                  navigate('/'); 
+                } 
+                )} else {
               r.json().then((error) => setErrors(error.errors))
               setTimeout(() => {
                 setErrors(null);

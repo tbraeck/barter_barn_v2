@@ -2,12 +2,14 @@ import React, { useState,useEffect, useContext } from 'react';
 // import { Link, useNavigate } from 'react-router-dom'
 import { UserContext } from './context/UserContext.js';
 import { ForumContext } from './context/ForumContext.js';
+import { useNavigate} from 'react-router-dom';
 
 const NewPost = () => {
 
   const {user} = useContext(UserContext);
   const { setAllCommunities, setAllGoods, setAllServices, setAllFrees} = useContext(ForumContext)
   const [selectedType, setSelectedType] = useState('GOOD');
+  const navigate = useNavigate();
 
   const [goodFormData, setGoodFormData] = useState({
     name: '',
@@ -75,52 +77,63 @@ const [imageData, setImageData] = useState(null);
   const handleServiceChange = (e) => {
     const { name, value } = e.target;
     setServiceFormData((prevData) => ({ ...prevData, [name]: value }));
+
   };
 
   const handleFreeStuffChange = (e) => {
     const { name, value } = e.target;
     setFreeStuffData((prevData) => ({ ...prevData, [name]: value }));
+
   };
 
   const handleCommunityChange = (e) => {
     const { name, value } = e.target;
     setCommunityData((prevData) => ({ ...prevData, [name]: value }));
+
   };
 
   const handleNewGood = (newGood) => {
-      setAllGoods((prevGoods) => [...prevGoods, newGood]);
+      // setAllGoods((prevGoods) => [...prevGoods, newGood]);
       setGoodFormData({
         name: '',
         description: '',
         claimant_id: ''
       });
+      navigate('/user_profile');
+
     };
     
     const handleNewService = (newService) => {
-      setAllServices((prevServices) => [...prevServices, newService]);
+      // setAllServices((prevServices) => [...prevServices, newService]);
       setServiceFormData({
         name: '',
         description: '',
         claimant_id: ''
       });
+      navigate('/user_profile');
+
     };
 
     const handleNewFreeStuff = (newFree) => {
-      setAllFrees((prevFrees) => [...prevFrees, newFree]);
+      // setAllFrees((prevFrees) => [...prevFrees, newFree]);
       setFreeStuffData({
         name: '',
         description: '',
         claimant_id: ''
       });
+      navigate('/user_profile');
+
     };
 
     const handleNewCommunity = (newCommunity) => {
-      setAllCommunities((prevCommunites) => [...prevCommunites, newCommunity]);
+      // setAllCommunities((prevCommunites) => [...prevCommunites, newCommunity]);
       setCommunityData({
         name: '',
         description: '',
         event_date: ''
       });
+      navigate('/user_profile');
+
     };
 
   const handleSubmitGood = (e) => {
@@ -146,6 +159,8 @@ const [imageData, setImageData] = useState(null);
         if (r.ok) {
           r.json().then((newGood) => {
             handleNewGood(newGood);
+            navigate('/create_post');  
+
             if (newGood.errors) {
               setErrors(newGood.errors);
             }          
@@ -187,6 +202,8 @@ const [imageData, setImageData] = useState(null);
         if (r.ok) {
           r.json().then((newService) => {
             handleNewService(newService);
+            navigate('/create_post');  
+
             if (newService.errors) {
               setErrors(newService.errors);
             }
@@ -233,6 +250,7 @@ const [imageData, setImageData] = useState(null);
         if (r.ok) {
           r.json().then((newStuff) => {
             handleNewFreeStuff(newStuff);
+            navigate('/create_post');  
             if (newStuff.errors) {
               setErrors(newStuff.errors);
             }
@@ -273,6 +291,7 @@ const [imageData, setImageData] = useState(null);
         if (r.ok) {
           r.json().then((newCommunity) => {
             handleNewCommunity(newCommunity);
+            navigate('/create_post');  
             if (newCommunity.errors) {
               setErrors(newCommunity.errors);
             }

@@ -1,5 +1,5 @@
 class GoodsController < ApplicationController
-  skip_before_action :authorize, only: %i[ index show update destroy ]
+  before_action :authorize
 
   # GET /goods
   def index
@@ -34,12 +34,14 @@ class GoodsController < ApplicationController
 
   # DELETE /goods/1
   def destroy
-    @good.destroy!
+    @good = find_good
+    @good.destroy
+    head :no_content
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_good
+    def find_good
       @good = Good.find(params[:id])
     end
 

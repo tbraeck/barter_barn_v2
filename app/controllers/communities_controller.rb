@@ -1,5 +1,5 @@
 class CommunitiesController < ApplicationController
-    skip_before_action :authorize, only: [:index, :show, :update, :destroy]
+  before_action :authorize
   
     def index
       @communities = Community.all
@@ -33,13 +33,14 @@ class CommunitiesController < ApplicationController
     end
   
     def destroy
+      @community = find_community
       @community.destroy
-      redirect_to communities_url, notice: 'Community was successfully destroyed.'
+      head :no_content    
     end
   
     private
   
-    def set_community
+    def find_community
       @community = Community.find(params[:id])
     end
   

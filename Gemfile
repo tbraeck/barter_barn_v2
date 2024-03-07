@@ -9,6 +9,7 @@ gem 'devise-jwt'
 gem 'rack-cors'
 # Use sqlite3 as the database for Active Record
 gem "sqlite3", "~> 1.4"
+# gem "pg", "~> 1.1"
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
@@ -21,7 +22,6 @@ gem 'bcrypt', '~> 3.1'
 # gem "redis", ">= 4.0.1"
 gem 'cssbundling-rails'
 
-gem 'pg'
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 
@@ -45,7 +45,7 @@ gem 'active_model_serializers'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem 'byebug'
+  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 
 end
 

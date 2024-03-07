@@ -3,7 +3,7 @@ import { Link} from 'react-router-dom';
 import { UserContext } from '../context/UserContext.js';
 
 const UserProfile = () => {
-  const {user} = useContext(UserContext);
+  const {user, setUser} = useContext(UserContext);
 
   if (!user || !user.goods || !user.services || !user.frees || !user.communities) {
     return <p>Loading...</p>;
@@ -15,10 +15,13 @@ const usersGoods = user.goods ? (
       <Link to={`/goods/${good.id}`} className="forum-item">
         <h1>{good.name}</h1>
       </Link>
-      <button className='btn btn-primary'>DELETE</button>
+      <button className='btn btn-primary' onClick={() => handleDeleteClickGood(good.id)}>DELETE</button>
     </div>
   ))
 ) : null;
+
+
+
 
 const usersServices = user.services ? (
 user.services.map(service => (
@@ -26,7 +29,7 @@ user.services.map(service => (
           <Link to={`/services/${service.id}`} className="forum-item">
             <h1>{service.name}</h1>
           </Link>
-          <button className='btn btn-primary'>DELETE</button>
+          <button className='btn btn-primary' onClick={() => handleDeleteClickService(service.id)}>DELETE</button>
     </div>
 )) ) : null;
 
@@ -37,7 +40,7 @@ user.frees.map(free => (
           <Link to={`/frees/${free.id}`} className="forum-item">
             <h1>{free.name}</h1>
           </Link>
-          <button className='btn btn-primary'>DELETE</button>
+          <button className='btn btn-primary' onClick={() => handleDeleteClickFrees(free.id)}>DELETE</button>
     </div>
  
 ))) : null;
@@ -49,10 +52,109 @@ user.communities.map(community => (
           <Link to={`/communities/${community.id}`} className="forum-item">
             <h1>{community.name}</h1>
           </Link>
-          <button className='btn btn-primary'>DELETE</button>
+          <button className='btn btn-primary' onClick={() => handleDeleteClickCommunity(community.id)}>DELETE</button>
     </div>
  
 ))) : null;
+
+
+const handleDeleteClickGood = (good_id ) => {
+  fetch(`/goods/${good_id}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json"
+    }
+  })
+  .then((res) => res.json())
+.then(() => {
+  setUser((prevUser) => {
+    const updatedGoods = Object.values(prevUser.saved_goods).filter(
+      (good) => good.id !== good_id
+    );
+    return {
+      ...prevUser,
+      saved_goods: updatedGoods
+    };
+    
+  });
+})
+  .catch((error) => {
+    console.error("Error deleting stuff:", error);
+  });
+};
+
+const handleDeleteClickService = (service_id, ) => {
+  fetch(`/users/${user.id}/services/${service_id}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json"
+    }
+  })
+  .then((res) => res.json())
+.then(() => {
+  setUser((prevUser) => {
+    const updatedServices = Object.values(prevUser.saved_services).filter(
+      (service) => service.id !== service_id
+    );
+    return {
+      ...prevUser,
+      saved_services: updatedServices
+    };
+  });
+})
+  .catch((error) => {
+    console.error("Error deleting service:", error);
+  });
+};
+
+const handleDeleteClickFrees = (frees_id, ) => {
+  fetch(`/users/${user.id}/frees/${frees_id}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json"
+    }
+  })
+  .then((res) => res.json())
+.then(() => {
+  setUser((prevUser) => {
+    const updatedFrees = Object.values(prevUser.saved_frees).filter(
+      (frees) => frees.id !== frees_id
+    );
+    return {
+      ...prevUser,
+      saved_frees: updatedFrees
+    };
+  });
+})
+  .catch((error) => {
+    console.error("Error deleting free stuff:", error);
+  });
+};
+
+const handleDeleteClickCommunity = (community_id, ) => {
+  fetch(`/users/${user.id}/communities/${community_id}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json"
+    }
+  })
+  .then((res) => res.json())
+.then(() => {
+  setUser((prevUser) => {
+    const updatedCommunities = Object.values(prevUser.saved_communities).filter(
+      (community) => community.id !== community_id
+    );
+    return {
+      ...prevUser,
+      saved_communities: updatedCommunities
+    };
+  });
+})
+  .catch((error) => {
+    console.error("Error deleting community event:", error);
+  });
+};
+
 
   return (
     <div className='home'>

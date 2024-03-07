@@ -1,5 +1,5 @@
 class FreesController < ApplicationController
-  skip_before_action :authorize, only: %i[ index show update destroy ]
+  before_action :authorize
 
   # GET /frees
   def index
@@ -35,12 +35,14 @@ class FreesController < ApplicationController
 
   # DELETE /frees/1
   def destroy
-    @free.destroy!
+    @frees = find_free
+    @frees.destroy
+    head :no_content
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_free
+    def find_free
       @free = Free.find(params[:id])
     end
 
