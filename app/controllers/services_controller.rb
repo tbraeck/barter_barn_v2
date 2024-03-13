@@ -1,5 +1,5 @@
 class ServicesController < ApplicationController
-  before_action :authorize
+  before_action :authorize, except: [:index, :show]
 
   # GET /services
   def index

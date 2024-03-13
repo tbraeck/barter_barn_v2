@@ -1,5 +1,5 @@
 class FreesController < ApplicationController
-  before_action :authorize
+  before_action :authorize, except: [:index, :show]
 
   # GET /frees
   def index
