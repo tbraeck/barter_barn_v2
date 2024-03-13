@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
-import { UserContext } from '../context/UserContext.js';
+// import { UserContext } from '../context/UserContext.js';
 import { ForumContext } from '../context/ForumContext.js';
 import { useParams } from 'react-router-dom';
 
 const Community = ({ good }) => {
-  const { user, setUser } = useContext(UserContext);
+  // const { user, setUser } = useContext(UserContext);
   const { communities} = useContext(ForumContext);
 
   const { id } = useParams();
@@ -23,6 +23,8 @@ const Community = ({ good }) => {
         <img className='thumbImg' src={selectedCommunity.image} alt="Free Stuff" />
         {/* <button className="crudButton saveButton">SAVE</button>
         <button className="crudButton saveButton">CLAIM</button> */}
+          <button type='submit' className="btn btn-primary" >SAVE</button>
+
       </div>
     </div>  
   );

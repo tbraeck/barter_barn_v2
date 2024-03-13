@@ -1,5 +1,5 @@
 class GoodsController < ApplicationController
-  before_action :authorize
+  skip_before_action :authorize
 
   # GET /goods
   def index

@@ -1,9 +1,11 @@
 import React, {useContext} from 'react';
 import { Link} from 'react-router-dom';
 import { UserContext } from '../context/UserContext.js';
-
+import { ForumContext } from '../context/ForumContext.js';
+  
 const UserProfile = () => {
   const {user, setUser} = useContext(UserContext);
+  const {allGoods, setAllGoods} = useContext(ForumContext);
 
   if (!user || !user.goods || !user.services || !user.frees || !user.communities) {
     return <p>Loading...</p>;
@@ -58,33 +60,31 @@ user.communities.map(community => (
 ))) : null;
 
 
-const handleDeleteClickGood = (good_id ) => {
+const handleDeleteClickGood = (good_id) => {
   fetch(`/goods/${good_id}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json"
     }
   })
-  .then((res) => res.json())
-.then(() => {
-  setUser((prevUser) => {
-    const updatedGoods = Object.values(prevUser.saved_goods).filter(
-      (good) => good.id !== good_id
-    );
-    return {
-      ...prevUser,
-      saved_goods: updatedGoods
-    };
-    
-  });
-})
-  .catch((error) => {
-    console.error("Error deleting stuff:", error);
-  });
+    .then((response) => {
+      if (response.ok) {
+        // Remove the deleted good from the allGoods list
+        const updatedGoods = allGoods.filter((good) => good.id !== good_id);
+        setAllGoods(updatedGoods);
+        console.error("Good deleted successfully");
+
+      } else {
+        console.error("Failed to delete good");
+      }
+    })
+    .catch((error) => {
+      console.error("Error deleting good:", error);
+    });
 };
 
 const handleDeleteClickService = (service_id, ) => {
-  fetch(`/users/${user.id}/services/${service_id}`, {
+  fetch(`/services/${service_id}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json"
@@ -108,7 +108,7 @@ const handleDeleteClickService = (service_id, ) => {
 };
 
 const handleDeleteClickFrees = (frees_id, ) => {
-  fetch(`/users/${user.id}/frees/${frees_id}`, {
+  fetch(`/frees/${frees_id}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json"
@@ -132,7 +132,7 @@ const handleDeleteClickFrees = (frees_id, ) => {
 };
 
 const handleDeleteClickCommunity = (community_id, ) => {
-  fetch(`/users/${user.id}/communities/${community_id}`, {
+  fetch(`/communities/${community_id}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json"

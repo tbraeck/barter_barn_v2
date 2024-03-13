@@ -1,10 +1,10 @@
 import React, {useContext} from 'react';
-import { UserContext } from '../context/UserContext.js';
+// import { UserContext } from '../context/UserContext.js';
 import { ForumContext } from '../context/ForumContext.js';
 import { useParams } from 'react-router-dom';
 
 const ServicePage = ({service}) => {
-  const {user, setUser} = useContext(UserContext);
+  // const {user, setUser} = useContext(UserContext);
   const { allServices } = useContext(ForumContext)
   
   const { id } = useParams();
@@ -19,9 +19,9 @@ const ServicePage = ({service}) => {
         <h1 className="pageTitle">{selectedService.name}</h1>
         <p className="pageDescription">Description: {selectedService.description}</p>
         <img className='thumbImg' src={selectedService.image} alt="Free Stuff" />
-
         {/* <button className="crudButton saveButton">SAVE</button>
         <button className="crudButton saveButton">CLAIM</button> */}
+        <button type='submit' className="btn btn-primary" >SAVE</button>
       </div>
     </div>
   )

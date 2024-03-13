@@ -67,61 +67,61 @@ puts "🤖 Seeding Goods..."
 Good.create!([
       {
         name: Faker::House.furniture,
-        description: Faker::Construction.material,
+        description: Faker::Lorem.paragraphs(number: 3).join("\n\n"),
         good_or_service: Faker::Construction.trade,
         user_id: 1,
       
       },
       {
         name: Faker::House.furniture,
-        description: Faker::Construction.material,
+        description: Faker::Lorem.paragraphs(number: 3).join("\n\n"),
         good_or_service: Faker::Construction.trade,
         user_id: 2,
       
       },
       {
         name: Faker::House.furniture,
-        description: Faker::Construction.material,
+        description: Faker::Lorem.paragraphs(number: 3).join("\n\n"),
         good_or_service: Faker::Construction.trade,
         user_id: 3,
      
       },
       {
         name: Faker::House.furniture,
-        description: Faker::Construction.material,
+        description: Faker::Lorem.paragraphs(number: 3).join("\n\n"),
         good_or_service: Faker::Construction.trade,
         user_id: 4,
      
       },
       {
         name: Faker::House.furniture,
-        description: Faker::Construction.material,
+        description: Faker::Lorem.paragraphs(number: 3).join("\n\n"),
         good_or_service: Faker::Construction.trade,
         user_id: 5,
      
       },
       {
         name: Faker::House.furniture,
-        description: Faker::Construction.material,
+        description: Faker::Lorem.paragraphs(number: 3).join("\n\n"),
         good_or_service: Faker::Construction.trade,
         user_id: 6
       },
       {
         name: Faker::House.furniture,
-        description: Faker::Construction.material,
+        description: Faker::Lorem.paragraphs(number: 3).join("\n\n"),
         good_or_service: Faker::Construction.trade,
         user_id: 7,
 
       },
       {
         name: Faker::House.furniture,
-        description: Faker::Construction.material,
+        description: Faker::Lorem.paragraphs(number: 3).join("\n\n"),
         good_or_service: Faker::Construction.trade,
         user_id: 8,
       },
       {
         name: Faker::House.furniture,
-        description: Faker::Construction.material,
+        description: Faker::Lorem.paragraphs(number: 3).join("\n\n"),
         good_or_service: Faker::Construction.trade,
         user_id: 1,
 

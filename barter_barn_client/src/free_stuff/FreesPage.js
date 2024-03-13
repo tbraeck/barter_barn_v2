@@ -1,10 +1,10 @@
 import React, {useContext} from 'react';
-import { UserContext } from '../context/UserContext.js';
+// import { UserContext } from '../context/UserContext.js';
 import { ForumContext } from '../context/ForumContext.js';
 import { useParams } from 'react-router-dom';
 
 const FreesPage = ({free}) => {
-  const {user, setUser} = useContext(UserContext);
+  // const {user, setUser} = useContext(UserContext);
   const { allFrees} = useContext(ForumContext)
   
   const { id } = useParams();
@@ -26,6 +26,7 @@ const FreesPage = ({free}) => {
       <div className='buttonsContainer'>
         {/* <button className="crudButton saveButton">SAVE</button>
         <button className="crudButton saveButton">CLAIM</button> */}
+          <button type='submit' className="btn btn-primary" >SAVE</button>
       </div>
       
   </div>
