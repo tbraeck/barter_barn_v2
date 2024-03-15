@@ -13,12 +13,12 @@ const NavigationButtons = () => {
   };
 
   return (
-    <div>
+    <div className='navButtons'>
       <button className="nav-button" onClick={handleGoBack}>
-        <img src='/1.png' alt='Go Back' className="button-image" />
+        <img src='/2.png' alt='Go Back' className="button-image" />
       </button>
       <button className="nav-button" onClick={handleGoForward}>
-        <img src='/2.png' alt='Go Forward' className="button-image" />
+        <img src='/1.png' alt='Go Forward' className="button-image" />
       </button>
     </div>
   );

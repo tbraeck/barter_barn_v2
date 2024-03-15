@@ -45,12 +45,13 @@ const SearchBar = () => {
   };
 
   return (
-    <div className="searchbar">
-      <label  htmlFor="search">🔎</label>
+    <div>
+      <label className='magGlass' htmlFor="search"> 🔎 </label>
       <input
+      style={{width: "330px", border: "none"}}
         type="text"
         id="search"
-        placeholder="Type a name to search..."
+        placeholder="Find What You're Looking For..."
         value={searchTerm}
         onChange={onSearchChange}
         onKeyPress={(e) => e.key === 'Enter' && handleSearch()}
@@ -58,7 +59,7 @@ const SearchBar = () => {
  <div className="searchResultsContainer" key="searchResultsContainer">
     {Object.entries(searchResults).map(([category, items]) => (
         <div key={category} className='searchResultDiv'>
-          {category === 'allGoods' && (
+          {/* {category === 'allGoods' && (
             <Link to={`/goods`} className="link header-link">
             <h1 className='results-column-h1'>GOODS</h1>
           </Link>
@@ -77,7 +78,7 @@ const SearchBar = () => {
              <Link to={`/communities`} className="link header-link">
              <h1 className='results-column-h1'>COMMUNITY</h1>
            </Link>
-          )}
+          )} */}
           <div className="contentContainer">
             {items.map((item) => (
              <ul>

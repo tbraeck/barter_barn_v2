@@ -1,6 +1,8 @@
 import React, { useContext} from "react";
 import {Routes, Route} from 'react-router-dom';
 import Home from "./general/Home.js";
+import NavBar from "./general/NavBar.js";
+import NavigationButtons from './general/NavigationButtons';
 import Footer from "./general/Footer.js";
 import Header from "./general/Header.js";
 import UserProfile from "./user/UserProfile.js";
@@ -16,15 +18,32 @@ import FeatureCard from "./FeatureCard.js";
 import NewPost from "./NewPost.js";
 import Login from "./login-components/Login.js";
 import SearchResults from "./general/SearchResults.js";
+import { UserContext } from './context/UserContext'
 
 const App = () => {
-  
+  const {user, setUser} = useContext(UserContext);
+
+  const handleLogout = ()=> {
+    setUser(null)
+  }
+
+  // if(!user) return <Login  />
+
   return (
     <div className="App">
       <div className='mainContainer'>
         <div className="header">
             <Header/>
         </div>
+        <div className="navStuff">
+        <div className='navbar'>
+            <NavBar  handleLogout={handleLogout} />
+              </div>
+            <div className='nav_f_b'>
+              <NavigationButtons />
+            </div>
+        </div>
+        
           <div>
             <Routes>
                 <Route exact path="/" element={<Home /> } />  

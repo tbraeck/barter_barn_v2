@@ -8,10 +8,14 @@ const Login = () => {
   const { setUser } = useContext(UserContext);
 
   return (
-    <div className='login-page'>
+    <div className='login-page' >
     <div className="login-container">
-      <h2 className="login-tagline">The Barter Barn</h2>
-      <h3 className='login-taglineH3'>Community ~ Bartering ~ Free</h3>
+      <h2 className="login-tagline">THE BARTER BARN</h2>
+      <h3 className='login-taglineH3'>Old-Fashioned Bartering</h3>
+      <h3 className='login-taglineH3'>Community Connection</h3>
+      <h3 className='login-taglineH3'>Free Stuff</h3>
+
+
       <div className="login-form-container">
         {showLogin ? (
           <div>

@@ -5,7 +5,7 @@ import { ForumContext } from '../context/ForumContext.js';
   
 const UserProfile = () => {
   const {user, setUser} = useContext(UserContext);
-  const {allGoods, setAllGoods} = useContext(ForumContext);
+  const {allGoods, setAllGoods, allServices, setAllServices} = useContext(ForumContext);
 
   if (!user || !user.goods || !user.services || !user.frees || !user.communities) {
     return <p>Loading...</p>;
@@ -90,18 +90,17 @@ const handleDeleteClickService = (service_id, ) => {
       "Content-Type": "application/json"
     }
   })
-  .then((res) => res.json())
-.then(() => {
-  setUser((prevUser) => {
-    const updatedServices = Object.values(prevUser.saved_services).filter(
-      (service) => service.id !== service_id
-    );
-    return {
-      ...prevUser,
-      saved_services: updatedServices
-    };
-  });
-})
+  .then((response) => {
+    if (response.ok) {
+      // Remove the deleted good from the allGoods list
+      const updatedServices = allServices.filter((service) => service.id !== service_id);
+      setAllServices(updatedServices);
+      console.error("Service deleted successfully");
+
+    } else {
+      console.error("Failed to delete service");
+    }
+  })
   .catch((error) => {
     console.error("Error deleting service:", error);
   });

@@ -64,7 +64,7 @@ const GoodPage = ({ good }) => {
         <p className="pageDescription">Description: {selectedGood.description}</p>
         <img className='thumbImg' src={selectedGood.image} alt="Good" />
         {/* <button className="crudButton saveButton" onClick={handleContact}>REPLY</button>  */}
-        <button type='submit' className="btn btn-primary" onClick={handleSaveGood}>SAVE</button>
+        <button type='submit' className="btn btn-primary" >SAVE</button>
         {/* {showCommentForm && <Chat />} */}
 
         {/* {showCommentForm && <CommentForm />} */}

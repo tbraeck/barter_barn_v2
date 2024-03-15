@@ -40,10 +40,23 @@ code {
   height: auto;
 }
 
+.navStuff{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
 .navbar {
   display: flex;
-  align-items: left;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 200px;
 }
+
+.navButtons{
+  margin-right: 0px;
+}
+
 
 .user-button {
   display: flex;
@@ -84,6 +97,7 @@ code {
 .nav_f_b{
 margin-left: 60px;
 }
+
 .user-text {
   font-size: 18px; /* Increased font size */
 }
@@ -151,7 +165,10 @@ margin-left: 60px;
 }
 
 .home {
-  position: relative;
+  /* position: relative;
+  di */
+  display: flex;
+  flex-direction: column;
   height: 100vh; 
 }
 
@@ -229,7 +246,7 @@ margin-left: 60px;
 
 .forum-list {
   margin-top: -100px;
-  background-color: rgba(255, 255, 255, 0.9); /* Add a semi-transparent white background */
+  background-color: rgba(255, 255, 255, 0.9); 
   border-radius: 8px; 
   padding: 70px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); 
@@ -241,11 +258,12 @@ margin-left: 60px;
 
 .link {
   text-decoration: none;
-  color: #0b0303; 
+  color:  #1b1515; 
 }
 
 .link:hover {
   text-decoration: underline;
+  color: #007bff;
 }
 
 .thumbImg {
@@ -353,25 +371,34 @@ margin-left: 60px;
   /* color: whte;  */
 }
 
+::placeholder {
+  color: rgb(158, 154, 167);
+}
+
 .searchBar {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  background-color: white;
   align-items: center;
-  margin: 10px auto; 
-  width: 400px;
+  margin-left: 150px ; 
+  padding-left: 20px;
+  width: 420px;
   font-size: 24px;
-  padding: 5px;
-  border: 1px solid #ccc;
-  box-shadow: 5px 5px #888888;
+  padding: 10px;
+  
+  /* border: 1px solid #ccc; */
+  /* box-shadow: 5px 5px #888888; */
   border-radius: 8px;
+}
+
+.magGlass{
+  margin-right: 15px;
+  padding-left: 10px;
 }
 
 .searchbar label {
   padding-right: 20px; /* Adjust the padding as needed */
 }
-
-
-
 
 .searchResultsContainer {
   display: flex;
@@ -390,7 +417,6 @@ margin-left: 60px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
 }
-
 
 .searchbar .searchResultsContainer {
   justify-content: center; /* Center the header links horizontally */

@@ -7,7 +7,7 @@ const LoginForm = () => {
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState([]);
   const navigate = useNavigate();
-  const { setUser, user } = useContext(UserContext);
+  const { setUser } = useContext(UserContext);
 
 
   const handleSubmit = (e) => {

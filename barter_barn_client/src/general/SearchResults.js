@@ -13,7 +13,7 @@ import { Link } from 'react-router-dom';
       if (location.state && location.state.searchResults) {
         setSearchResults(location.state.searchResults);
       } else {
-        // If no search results in state, you may want to handle this case
+        alert("Sorry, nothing matches your search. \n Please try again")
         setSearchResults({});
       }
     }, [location.state]);

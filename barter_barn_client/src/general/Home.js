@@ -1,9 +1,11 @@
   import React, {useContext} from 'react';
   import { Link} from 'react-router-dom';
   import { ForumContext } from '../context/ForumContext.js';
-import SearchBar from './SearchBar.js';
+  // import NavBar from './NavBar.js';
+  // import NavigationButtons from './NavigationButtons.js';
+// import SearchBar from './SearchBar.js';
 
-  const Home = () => {
+  const Home = ({handleLogout}) => {
     const { allGoods, allServices, allFrees, communities } = useContext(ForumContext)
     
     const forumGoods = allGoods.map((good) => (
@@ -41,7 +43,14 @@ import SearchBar from './SearchBar.js';
 
     return (
       <div className="home">
-        <div className='searchBar'><SearchBar/></div>
+        {/* <div className='searchBar'><SearchBar/></div> */}
+        {/* <div className='navbar'>
+        <NavBar  handleLogout={handleLogout} />
+      </div>
+      <div className='nav_f_b style' style={{display: "flex", flexDirection: "row", alignItems: "center"}}>
+        <NavigationButtons />
+      </div> */}
+        
         <div className="background-image"></div>
         <div className="content">
           <div className="header-box">
