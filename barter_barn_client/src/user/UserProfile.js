@@ -163,25 +163,25 @@ const handleDeleteClickCommunity = (community_id, ) => {
           <h1 className='userNameTitle'>{user.username}'s Saved Items</h1>
         </div>
         <div className="mainPageItemsContainer" key="mainPageItemsContainer">
-        <div className="category-column" style={{ backgroundColor: '#ffb3ba' }}>
+        <div className="category-column" style={{ backgroundColor: '#ffb3ba', margin: "20px" }}>
         <div>
           <h1 className='category-column-h1-user'> GOODS</h1>
           {usersGoods}
         </div>
         </div>
-        <div className="category-column" style={{ backgroundColor: '#ffdfba' }}>
+        <div className="category-column" style={{ backgroundColor: '#ffdfba', margin: "20px"  }}>
         <div>
           <h1 className='category-column-h1-user'>SERVICES</h1>
           {usersServices}
         </div>
         </div>
-        <div className="category-column" style={{ backgroundColor: '#ffffba' }}>
+        <div className="category-column" style={{ backgroundColor: '#ffffba', margin: "20px"  }}>
         <div>
           <h1 className='category-column-h1-user'>FREE STUFF</h1>
           {usersFrees}
         </div>
         </div>
-        <div className="category-column" style={{ backgroundColor: '#baffc9' }}>
+        <div className="category-column" style={{ backgroundColor: '#baffc9', margin: "20px"  }}>
         <div>
           <h1 className='category-column-h1-user'>COMMUNITIES</h1>
           {usersCommunities}

@@ -55,25 +55,25 @@
         <div className="content">
           <div className="header-box">
             <div className="mainPageItemsContainer" key="mainPageItemsContainer">
-            <div className="category-column" style={{ backgroundColor: '#ffb3ba' }}>
+            <div className="category-column" style={{ backgroundColor: '#ffb3ba', maxWidth: "300px", margin: "0 10px" }}>
                 <Link to={`/goods`} className="link header-link ">
                   <h1 className='category-column-h1'>GOODS</h1>
                 </Link>
                 {forumGoods}
               </div>
-              <div className="category-column" style={{ backgroundColor: '#ffdfba' }}>
+              <div className="category-column" style={{ backgroundColor: '#ffdfba', maxWidth: "300px", margin: "0 10px" }}>
                 <Link to={`/services`} className="link header-link">
                   <h1 className='category-column-h1'>SERVICES</h1>
                 </Link>
                 {forumServices}
               </div>
-              <div className="category-column" style={{ backgroundColor: '#ffffba' }}>
+              <div className="category-column" style={{ backgroundColor: '#ffffba', maxWidth: "300px", margin: "0 10px" }}>
                 <Link to={`/frees`} className="link header-link">
                   <h1 className='category-column-h1'>FREE STUFF</h1>
                 </Link>
                 {forumFrees}
               </div>
-              <div className="category-column" style={{ backgroundColor: '#baffc9' }}>
+              <div className="category-column" style={{ backgroundColor: '#baffc9', maxWidth: "300px", margin: "0 10px" }}>
                 <Link to={`/communities`} className="link header-link">
                   <h1 className='category-column-h1'>COMMUNITY</h1>
                 </Link>

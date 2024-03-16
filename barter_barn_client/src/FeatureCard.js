@@ -1,25 +1,17 @@
 import React, { useState, useEffect, useCallback, useContext } from 'react';
-import GoodPage from './goods/GoodPage.js';
-import ServicePage from './services/ServicePage.js';
-import FreesPage from './free_stuff/FreesPage.js';
-import CommunityPage from './community/Community.js'; 
-// import { UserContext } from './context/UserContext.js';
+import Card from './Card'; // Import the Card component
 import { ForumContext } from './context/ForumContext.js';
 
 const FeaturedCard = () => {
   const [randomIndex, setRandomIndex] = useState(0);
   const [isSaved, setIsSaved] = useState(false);
-  // const { user } = useContext(UserContext);
   const { allGoods, allServices, allFrees, communities } = useContext(ForumContext);
-
-  let randomItem; // Declare randomItem outside useEffect
+  let randomItem;
 
   const handleRandomize = useCallback(() => {
     const allItems = [...allGoods, ...allServices, ...allFrees, ...communities];
     if (allItems.length > 0) {
       const newIndex = Math.floor(Math.random() * allItems.length);
-      console.log("New Index:", newIndex); // Log the new index
-
       setRandomIndex(newIndex);
       setIsSaved(false);
     }
@@ -28,7 +20,7 @@ const FeaturedCard = () => {
   const handleSave = () => {
     if (randomItem) {
       setIsSaved(true);
-      // handleSaveGoodToUserProfile(randomItem);
+      // Handle save logic
     }
   };
 
@@ -40,28 +32,15 @@ const FeaturedCard = () => {
     const allItems = [...allGoods, ...allServices, ...allFrees, ...communities];
     randomItem = allItems[randomIndex];
   }
-  console.log("Random Item:", randomItem);
 
   return (
-    <div className="featured-card">
-      {!isSaved && randomItem ? (
-        <div>
-          {/* Render the appropriate forum page based on the item type */}
-          {randomItem.type === 'good' && (
-            <GoodPage good={randomItem} handleSave={handleSave} featured={true} />
-          )}
-          {randomItem.type === 'service' && (
-            <ServicePage service={randomItem} handleSave={handleSave} featured={true} />
-          )}
-          {randomItem.type === 'free' && (
-            <FreesPage free={randomItem} handleSave={handleSave} featured={true} />
-          )}
-          {randomItem.type === 'community' && (
-            <CommunityPage community={randomItem} handleSave={handleSave} featured={true} />
-          )}
-        </div>
-      ) : null}
-    </div>  
+    <div className='featurePage'>
+      <div className="featured-card">
+        {!isSaved && randomItem ? (
+          <Card item={randomItem} handleSave={handleSave} />
+        ) : null}
+      </div>
+    </div>
   );
 };
 
