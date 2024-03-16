@@ -2,11 +2,11 @@ import React, {useContext} from 'react'
 import { Link} from 'react-router-dom';
 
 import { ForumContext } from '../context/ForumContext.js';
-import { UserContext } from '../context/UserContext.js';
+// import { UserContext } from '../context/UserContext.js';
 
 const AllServices = () => {
 
-    const {user, setUser} = useContext(UserContext);
+    // const {user, setUser} = useContext(UserContext);
   const { allServices} = useContext(ForumContext)
   
   const forumServices = allServices.map((service) => (
@@ -19,9 +19,14 @@ const AllServices = () => {
   
   return (
     <div className="forum-container">
-        <div className="forum-list">
-     {forumServices}
-    </div>
+      <div className="category-column" style={{ backgroundColor: '#ffdfba' }}>
+        <Link to={`/services`} className="link ">
+          <h2 className='h2Forum'>SERVICES</h2>
+        </Link>
+      <div className="forum-list">
+        {forumServices}
+      </div>
+      </div>
     </div>
   )
 }

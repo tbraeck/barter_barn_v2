@@ -17,9 +17,14 @@ const AllFrees = () => {
   
   return (
     <div className="forum-container">
-    <div className='forum-list'> 
-     {forumFrees}
-    </div>
+      <div className="category-column" style={{ backgroundColor: '#ffffba' }}>
+        <Link to={`/frees`} className="link ">
+          <h2 className='h2Forum'>FREE STUFF</h2>
+        </Link>
+        <div className='forum-list'> 
+          {forumFrees}
+        </div>
+      </div>
     </div>
   )
 }

@@ -17,9 +17,14 @@ const Communities = () => {
   
   return (
     <div className="forum-container">
-    <div className="forum-list">
-      {forumCommunities}
-    </div>
+      <div className="category-column" style={{ backgroundColor: '#baffc9' }}>
+          <Link to={`/communities`} className="link ">
+            <h2 className='h2Forum'>COMMUNITY EVENTS</h2>
+          </Link>
+        <div className="forum-list">
+          {forumCommunities}
+        </div>
+      </div>
   </div>
   )
 }

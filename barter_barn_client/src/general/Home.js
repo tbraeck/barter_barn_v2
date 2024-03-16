@@ -5,7 +5,7 @@
   // import NavigationButtons from './NavigationButtons.js';
 // import SearchBar from './SearchBar.js';
 
-  const Home = ({handleLogout}) => {
+  const Home = () => {
     const { allGoods, allServices, allFrees, communities } = useContext(ForumContext)
     
     const forumGoods = allGoods.map((good) => (
@@ -56,7 +56,7 @@
           <div className="header-box">
             <div className="mainPageItemsContainer" key="mainPageItemsContainer">
             <div className="category-column" style={{ backgroundColor: '#ffb3ba' }}>
-                <Link to={`/goods`} className="link header-link">
+                <Link to={`/goods`} className="link header-link ">
                   <h1 className='category-column-h1'>GOODS</h1>
                 </Link>
                 {forumGoods}

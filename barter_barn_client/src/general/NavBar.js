@@ -6,21 +6,21 @@
   const navigate = useNavigate();
   const {user, setUser} = useContext(UserContext);
 
-  const handleLogout = ()=> {
-    setUser(null)
-  }
+  // const handleLogout = ()=> {
+  //   setUser(null)
+  // }
 
-  const handleLogoutClick = () => {
-    fetch("/logout", {
-      method: "DELETE",
-    })
-    .then((r)=> {
-      if(r.ok){
-        handleLogout(null)
-        navigate('/');  
-      }
-    })
-  }
+  // const handleLogoutClick = () => {
+  //   fetch("/logout", {
+  //     method: "DELETE",
+  //   })
+  //   .then((r)=> {
+  //     if(r.ok){
+  //       handleLogout(null)
+  //       navigate('/');  
+  //     }
+  //   })
+  // }
 
   return (
     <div className='headerBack'>  
@@ -37,7 +37,7 @@
         <span className='user-text'>DAILY FEATURED</span>
         </button>
       </Link>
-     {user ? (
+     {/* {user ? (
        <Link to="/user-profile" className='btn'>
        <div  type='button' className='btn btn-secondary' >
          <img src="/farmer.png" alt="User Icon" className='user_icon' />
@@ -67,7 +67,7 @@
           <span className='user-text'>CREATE POST</span>
         </div>
       </Link>
-       ) : null}
+       ) : null} */}
     </div>
   </div>
   )

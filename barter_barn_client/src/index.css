@@ -15,10 +15,17 @@ code {
 
 .headerCont {
   display: flex;
+  flex-direction: row;
   align-items: center;
   padding: 20px;
   background-color: #4da4fc; 
   color: white; 
+}
+
+.loginAccount{
+display: flex;
+flex-direction: row;
+margin: 10px;
 }
 
 .header-link {
@@ -181,25 +188,23 @@ margin-left: 60px;
 
 .category-column {
   flex: 1;
-  margin: 0 10px; 
+  margin: 20; 
   align-items: center;
   max-width: 500px; 
   border: 1px solid #ccc;
   border-radius: 20px; 
   box-shadow: 5px 10px #888888;
-
-  padding: 10px; 
+  padding: 20px; 
   display: flex;
   flex-direction: column;
   align-content: center;
   text-align: center; 
-  color: #ffffff;
   transition: transform 0.3s; 
 
 }
 
 .category-column:hover  {
-  transform: scale(1.2); /* Increase the size on hover */
+  transform: scale(1.2); 
 }
 
 .category-column-h1 {
@@ -230,12 +235,14 @@ margin-left: 60px;
 
 .forum-container {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: top;
   align-items: center;
-  background-image: url('../public/background1.jpeg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center top; 
+  background-image: url('./services/farmer-33.png'), url('./services/cart.png') ;
+  background-repeat: no-repeat, no-repeat;
+  background-size: 30%;
+  /* opacity: 0.2; */
+  background-position: center left, center right; 
   position: relative; 
   width: 100%;
   height: 100vh;
@@ -244,11 +251,18 @@ margin-left: 60px;
   
 }
 
+.h2Forum{
+  display: flex;
+  margin: 30px;
+  font-size: 45px;
+  color: #0056b3;
+}
+
 .forum-list {
-  margin-top: -100px;
+  /* margin-top: 50px; */
   background-color: rgba(255, 255, 255, 0.9); 
   border-radius: 8px; 
-  padding: 70px;
+  padding: 40px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); 
 }
 
@@ -283,6 +297,10 @@ margin-left: 60px;
   color: #fff;
 }
 
+.red-button {
+  background-color: rgb(246, 105, 105);
+  color: white; /* Text color */
+}
 .new-post-container {
   display: flex;
   justify-content: center;
@@ -382,7 +400,8 @@ margin-left: 60px;
   align-items: center;
   margin-left: 150px ; 
   padding-left: 20px;
-  width: 420px;
+  margin-right: 50px;
+  width: 45 0px;
   font-size: 24px;
   padding: 10px;
   
