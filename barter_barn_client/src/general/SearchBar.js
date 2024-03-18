@@ -1,11 +1,10 @@
 import React, { useState, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { ForumContext } from '../context/ForumContext.js';
-import { Link, useNavigate } from 'react-router-dom';
 
 const SearchBar = () => {
   const { allGoods, allServices, allFrees, communities } = useContext(ForumContext);
   const [searchTerm, setSearchTerm] = useState("");
-  const [searchResults, setSearchResults] = useState([]);
   const navigate = useNavigate();
 
   const allItems = { allGoods, allServices, allFrees, communities };
@@ -15,17 +14,15 @@ const SearchBar = () => {
   };
 
   const handleSearch = () => {
-    const filteredItems = searchTerm ? filterItems(searchTerm) : allItems;
-    setSearchResults(filteredItems);
-  
-    if (searchTerm) {
+    if (searchTerm.trim() !== "") {
+      const filteredItems = filterItems(searchTerm.trim());
       navigate('/searchResults', { state: { searchResults: filteredItems } });
     }
   };
 
   const filterItems = (input) => {
     if (!input) {
-      return allItems;
+      return {};
     }
 
     const results = {
@@ -45,10 +42,10 @@ const SearchBar = () => {
   };
 
   return (
-    <div>
+    <div className='searchBarDiv'>
       <label className='magGlass' htmlFor="search"> 🔎 </label>
       <input
-      style={{width: "330px", border: "none"}}
+        style={{ width: "330px", border: "none" }}
         type="text"
         id="search"
         placeholder="Find What You're Looking For..."
@@ -56,74 +53,6 @@ const SearchBar = () => {
         onChange={onSearchChange}
         onKeyPress={(e) => e.key === 'Enter' && handleSearch()}
       />
- <div className="searchResultsContainer" key="searchResultsContainer">
-    {Object.entries(searchResults).map(([category, items]) => (
-        <div key={category} className='searchResultDiv'>
-          {/* {category === 'allGoods' && (
-            <Link to={`/goods`} className="link header-link">
-            <h1 className='results-column-h1'>GOODS</h1>
-          </Link>
-          )}
-          {category === 'allServices' && (
-            <Link to={`/services`} className="link header-link">
-            <h1 className='results-column-h1'>SERVICES</h1>
-          </Link>
-          )}
-          {category === 'allFrees' && (
-             <Link to={`/frees`} className="link header-link">
-             <h1 className='results-column-h1'>FREE STUFF</h1>
-           </Link>
-          )}
-          {category === 'communities' && (
-             <Link to={`/communities`} className="link header-link">
-             <h1 className='results-column-h1'>COMMUNITY</h1>
-           </Link>
-          )} */}
-          <div className="contentContainer">
-            {items.map((item) => (
-             <ul>
-                {category === 'allGoods' && (
-                 <div className="category-column" style={{ backgroundColor: '#ffb3ba' }}>
-                 <h2 key={item.id}>
-                    <Link to={`/goods/${item.id}`} className="link">
-                    {item.name}
-                  </Link>
-                  </h2>
-                  </div>
-                )}
-                {category === 'allServices' && (
-                <div className="category-column" style={{ backgroundColor: '#ffdfba' }}>
-                    <h2 key={item.id}>
-                        <Link to={`/services/${item.id}`} className="link">
-                            {item.name}
-                        </Link>
-                  </h2>
-                </div>
-                )}
-                {category === 'allFrees' && (
-                <div className="category-column" style={{ backgroundColor: '#ffffba' }}>
-                    <h2 key={item.id}>
-                        <Link to={`/frees/${item.id}`} className="link">
-                            {item.name}
-                        </Link>
-                    </h2>
-                  </div>
-                )}
-                {category === 'communities' && (
-                  <div className="category-column" style={{ backgroundColor: '#baffc9' }}>
-                    <h2 key={item.id}>
-                        <Link to={`/communities/${item.id}`} className="link">
-                            {item.name}
-                        </Link>
-                  </h2>
-                  </div>
-                )}
-                </ul>
-            ))}
-          </div>
-        </div>
-      ))}
-    </div>
     </div>
   );
 };

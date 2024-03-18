@@ -1,13 +1,14 @@
-import React, { useState,useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 // import { Link, useNavigate } from 'react-router-dom'
 import { UserContext } from './context/UserContext.js';
 import { ForumContext } from './context/ForumContext.js';
 import { useNavigate} from 'react-router-dom';
+import Communities from './community/Communities.js';
 
 const NewPost = () => {
 
   const {user} = useContext(UserContext);
-  const { setAllCommunities, setAllGoods, setAllServices, setAllFrees} = useContext(ForumContext)
+  const { allGoods, allServices, allFrees, communities, setAllCommunities, setAllGoods, setAllServices, setAllFrees} = useContext(ForumContext)
   const [selectedType, setSelectedType] = useState('GOOD');
   const navigate = useNavigate();
 
@@ -35,9 +36,10 @@ const NewPost = () => {
     event_date: ''
   });
 
-// const [freeStuffs, setFreeStuffs] = useState([])
-// const [someGoods, setSomeGoods] = useState([])
-// const [someServices, setSomeServices] = useState([])
+const [frees, setSomeFrees] = useState([])
+const [someGoods, setSomeGoods] = useState([])
+const [someServices, setSomeServices] = useState([])
+const [someCommunities, setSomeCommunities] = useState([])
 const [imageData, setImageData] = useState(null);
 
   const [errors, setErrors] = useState([]);
@@ -49,22 +51,26 @@ const [imageData, setImageData] = useState(null);
 
   useEffect(() => {
 
-    fetch(`/frees`)
-    .then(res => res.json())
-    .then(data => setAllFrees(data))
+      fetch(`/frees`)
+        .then(res => res.json())
+        .then(data => {
+          console.log("Fetched frees:", data);
+          setAllFrees(data);
+        })
+        .catch(error => console.error("Error fetching frees:", error));
+   
 
     fetch(`/goods`)
     .then(res => res.json())
-    .then(data => setAllGoods(data))
+    .then(data => setSomeServices(data))
 
     fetch(`/services`)
     .then(res => res.json())
     .then(data => setAllServices(data))
 
-
     fetch(`/communities`)
     .then(res => res.json())
-    .then(data => setAllCommunities(data))
+    .then(data => setSomeCommunities(data))
 
   }, [setAllGoods, setAllFrees, setAllCommunities, setAllServices])
 
@@ -93,48 +99,65 @@ const [imageData, setImageData] = useState(null);
   };
 
   const handleNewGood = (newGood) => {
-      // setAllGoods((prevGoods) => [...prevGoods, newGood]);
-      setGoodFormData({
-        name: '',
-        description: '',
-        claimant_id: ''
-      });
+      setAllGoods((prevGoods) => [...prevGoods, newGood]);
       navigate('/user_profile');
-
     };
+
+  const handleNewService = (newService) => {
+      setAllServices((prevServices) => [...prevServices, newService]);
+      navigate('/user_profile');
+    };
+
+    const handleNewFreeStuff = (newStuff) => {
+      const updatedFrees = allFrees.map((oneFree) =>
+        oneFree.id === newStuff.id
+          ? {
+              ...oneFree,
+              ...newStuff,
+            }
+          : oneFree
+      );
     
-    const handleNewService = (newService) => {
-      // setAllServices((prevServices) => [...prevServices, newService]);
-      setServiceFormData({
-        name: '',
-        description: '',
-        claimant_id: ''
-      });
-      navigate('/user_profile');
-
-    };
-
-    const handleNewFreeStuff = (newFree) => {
-      // setAllFrees((prevFrees) => [...prevFrees, newFree]);
+      setAllFrees(updatedFrees);
       setFreeStuffData({
         name: '',
         description: '',
         claimant_id: ''
       });
-      navigate('/user_profile');
-
     };
+    
+    
 
+    // const handleNewCommunity = (newCommunity) => {
+    //   setAllCommunities((prevCommunites) => [...prevCommunites, newCommunity]);
+    //   // setCommunityData({
+    //   //   name: '',
+    //   //   description: '',
+    //   //   event_date: ''
+    //   // });
+    //   navigate('/user_profile');
+
+    // };
     const handleNewCommunity = (newCommunity) => {
-      // setAllCommunities((prevCommunites) => [...prevCommunites, newCommunity]);
+      const updatedCommunities = communities.map((existingCommunity) =>
+        existingCommunity.id === newCommunity.id
+          ? {
+              ...existingCommunity,
+              name: newCommunity.name,
+              description: newCommunity.description,
+              // Add any other properties you want to update here
+            }
+          : existingCommunity
+      );
+    
+      setAllCommunities(updatedCommunities);
       setCommunityData({
         name: '',
         description: '',
         event_date: ''
       });
-      navigate('/user_profile');
-
     };
+    
 
   const handleSubmitGood = (e) => {
     e.preventDefault();
@@ -145,7 +168,7 @@ const [imageData, setImageData] = useState(null);
     }
     const formData = new FormData();
     formData.append('user_id', user?.id || '');   
-     formData.append('name', goodName);
+    formData.append('name', goodName);
     formData.append('description', goodDescription);
     formData.append('claimant_id', goodClaimantId )
     formData.append('main_image', imageData);
@@ -159,7 +182,8 @@ const [imageData, setImageData] = useState(null);
         if (r.ok) {
           r.json().then((newGood) => {
             handleNewGood(newGood);
-            navigate('/create_post');  
+            navigate('/user-profile');
+            alert('New good added to user profile')  
 
             if (newGood.errors) {
               setErrors(newGood.errors);
@@ -203,6 +227,7 @@ const [imageData, setImageData] = useState(null);
           r.json().then((newService) => {
             handleNewService(newService);
             navigate('/create_post');  
+            alert('New service added to user profile')  
 
             if (newService.errors) {
               setErrors(newService.errors);
@@ -251,6 +276,8 @@ const [imageData, setImageData] = useState(null);
           r.json().then((newStuff) => {
             handleNewFreeStuff(newStuff);
             navigate('/create_post');  
+            alert('New free stuff added to user profile')  
+
             if (newStuff.errors) {
               setErrors(newStuff.errors);
             }
@@ -292,6 +319,8 @@ const [imageData, setImageData] = useState(null);
           r.json().then((newCommunity) => {
             handleNewCommunity(newCommunity);
             navigate('/create_post');  
+            alert('New community event added to user profile')  
+
             if (newCommunity.errors) {
               setErrors(newCommunity.errors);
             }

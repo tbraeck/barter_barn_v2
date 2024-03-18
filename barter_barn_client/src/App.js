@@ -44,7 +44,7 @@ const App = () => {
             </div>
         </div>
         
-          <div>
+          <div className="routes" >
             <Routes>
                 <Route exact path="/" element={<Home /> } />  
                 {/* {/* <Route path="/forums" element={<ForumList allForum={allForum}  setAllForum={setAllForum} /> }/> */}

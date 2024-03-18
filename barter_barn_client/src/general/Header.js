@@ -36,7 +36,7 @@ const Header = ({ userComments, setUserComments}) => {
       <div className='loginAccount'>
      {user ? (
        <Link to="/user-profile" className='btn'>
-       <div  type='button' className='btn btn-primary red' style={{ backgroundColor:" rgb(300 , 200, 200)", color: 'black', borderRadius: "20px", marginTop: "35px" }}>
+       <div  type='button' className='btn btn-primary red' style={{ backgroundColor:"  #5adbb5", color: 'black', borderRadius: "20px", marginTop: "35px" }}>
          <img src="/farmer.png" alt="User Icon" className='user_icon' />
          <span className='user-text'>ACCOUNT</span>
        </div>
@@ -45,7 +45,7 @@ const Header = ({ userComments, setUserComments}) => {
 
 {user ? (
     <Link to="/create_post" className='btn'>
-        <div  type='button' className='btn btn-secondary'  style={{ backgroundColor:" rgb(300 , 200, 200)", color: 'black', borderRadius: "20px",  width: "150px", marginTop: "35px" }}>
+        <div  type='button' className='btn btn-secondary'  style={{ backgroundColor:"  #5adbb5", color: 'black', borderRadius: "20px",  width: "150px", marginTop: "35px" }}>
           <img src="/tab.png" alt="User Icon" className='user_icon' />
           <span className='user-text'>CREATE POST</span>
         </div>
@@ -56,11 +56,11 @@ const Header = ({ userComments, setUserComments}) => {
     {user ? (
         <div className='btn '>
           <h2 className='welcomeText' style={{color: "white"}}>Welcome, {user.username}!</h2>
-          <button type='submit' onClick={handleLogoutClick} className='btn btn-secondary' style={{ backgroundColor:" rgb(300 , 200, 200)", color: 'black', marginLeft: "0px", borderRadius: "20px", width: "100px", marginTop: "25px" }} >LOGOUT</button>
+          <button type='submit' onClick={handleLogoutClick} className='btn btn-secondary' style={{ backgroundColor:"  #5adbb5", color: 'black', marginLeft: "0px", borderRadius: "20px", width: "100px", marginTop: "25px" }} >LOGOUT</button>
         </div>
       ) : 
       <Link to="/login" className='btn'>
-        <div  type='button' className='btn btn-secondary' style={{ backgroundColor:" rgb(255, 179, 186)", color: 'black' , marginTop: "0px" }} >
+        <div  type='button' className='btn btn-secondary' style={{ backgroundColor:"  #5adbb5", color: 'black' , marginTop: "0px" }} >
           <img src="/enter.png" alt="User Icon" className='user_icon' />
           <span className='user-text'>LOGIN</span>
         </div>

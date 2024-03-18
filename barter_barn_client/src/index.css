@@ -419,6 +419,12 @@ margin-left: 60px;
   padding-right: 20px; /* Adjust the padding as needed */
 }
 
+.routes{
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: center;
+}
 .searchResultsContainer {
   display: flex;
   flex-direction: row;
@@ -429,7 +435,6 @@ margin-left: 60px;
 
 .searchResultDiv {
   flex: 1;
-  flex-direction: row;
   margin: 10px;
   justify-content: center;
   align-items: center; 
@@ -456,10 +461,15 @@ margin-left: 60px;
 margin: 30px;
 }
 
-.featureCard{
-  justify-content: center top;
-  align-content: center ;
+.featureCard {
+  width: 100%; /* Set width to 100% to take up full width of parent */
+  max-width: 400px;
+  padding: 25px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin: 15px; /* Adjust margin as needed */
 }
+
 
 .card{
   width: "475px";
@@ -467,7 +477,7 @@ margin: 30px;
    align-items: center;
   max-width: 400px;
   padding: 25px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
  
 }

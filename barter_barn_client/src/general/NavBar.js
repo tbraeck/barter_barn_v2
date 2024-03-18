@@ -26,13 +26,13 @@
     <div className='headerBack'>  
       <div className="btn ">
       <Link to="/" className='btn '>
-        <button className='btn btn-secondary' type='button'>
+        <button className='btn ' type='button' style={{ backgroundColor:" #55c2da", color: 'black'  }}>
         <img src="/home.png" alt="User Icon" className='user_icon' />
           <span className='user-text'>HOME</span>
         </button>
       </Link>
       <Link to="/featured" className='btn '>
-        <button  type='button' className='btn btn-secondary'>
+        <button  type='button' className='btn ' style={{ backgroundColor:" #55c2da", color: 'black'}}>
         <img src="/sun1.png" alt="User Icon" className='user_icon' />
         <span className='user-text'>DAILY FEATURED</span>
         </button>

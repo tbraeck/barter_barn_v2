@@ -62,7 +62,7 @@
                 {forumGoods}
               </div>
               <div className="category-column" style={{ backgroundColor: '#ffdfba', maxWidth: "300px", margin: "0 10px" }}>
-                <Link to={`/services`} className="link header-link">
+                 <Link to={`/services`} className="link header-link">
                   <h1 className='category-column-h1'>SERVICES</h1>
                 </Link>
                 {forumServices}

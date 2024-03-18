@@ -23,9 +23,9 @@ import { Link } from 'react-router-dom';
   return (
     <div className="searchResultsContainer" key="searchResultsContainer">
       {Object.entries(searchResults).map(([category, items]) => (
-        <div key={category} className='searchResultDiv'>
+        <div key={category} className='searchResultDiv' style={{ alignItems: "center", justifyContent: "center" }}>
           {category === 'allGoods' && (
-            <Link to={`/goods`} className="link header-link">
+            <Link to={`/goods`} className="link header-link" style={{alignItems: "center"}} >
               <h1 className='results-column-h1'>GOODS</h1>
             </Link>
           )}
@@ -48,7 +48,7 @@ import { Link } from 'react-router-dom';
             {items.map((item) => (
               <ul>
                 {category === 'allGoods' && (
-                  <div className="category-column" style={{ backgroundColor: '#ffb3ba' }}>
+                  <div className="category-column" style={{ backgroundColor: '#ffb3ba', alignItems: "center", justifyContent: "center" }}>
                     <h2 key={item.id}>
                       <Link to={`/goods/${item.id}`} className="link">
                         {item.name}
@@ -57,7 +57,7 @@ import { Link } from 'react-router-dom';
                   </div>
                 )}
                 {category === 'allServices' && (
-                  <div className="category-column" style={{ backgroundColor: '#ffdfba' }}>
+                  <div className="category-column" style={{ backgroundColor: '#ffdfba', alignItems: "center", justifyContent: "center" }}>
                     <h2 key={item.id}>
                       <Link to={`/services/${item.id}`} className="link">
                         {item.name}
@@ -66,7 +66,7 @@ import { Link } from 'react-router-dom';
                   </div>
                 )}
                 {category === 'allFrees' && (
-                  <div className="category-column" style={{ backgroundColor: '#ffffba' }}>
+                  <div className="category-column" style={{ backgroundColor: '#ffffba', alignItems: "center", justifyContent: "center" }}>
                     <h2 key={item.id}>
                       <Link to={`/frees/${item.id}`} className="link">
                         {item.name}
@@ -75,7 +75,7 @@ import { Link } from 'react-router-dom';
                   </div>
                 )}
                 {category === 'communities' && (
-                  <div className="category-column" style={{ backgroundColor: '#baffc9' }}>
+                  <div className="category-column" style={{ backgroundColor: '#baffc9', alignItems: "center", justifyContent: "center" }}>
                     <h2 key={item.id}>
                       <Link to={`/communities/${item.id}`} className="link">
                         {item.name}
