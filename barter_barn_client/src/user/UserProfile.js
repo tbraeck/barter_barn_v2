@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useState} from 'react';
 import { Link} from 'react-router-dom';
 import { UserContext } from '../context/UserContext.js';
 import { ForumContext } from '../context/ForumContext.js';
@@ -6,7 +6,7 @@ import { ForumContext } from '../context/ForumContext.js';
 const UserProfile = () => {
   const {user, setUser} = useContext(UserContext);
   const {allGoods, setAllGoods, allServices, setAllServices} = useContext(ForumContext);
-
+const {usersStuff, setUsersStuff} = useState([])
   if (!user || !user.goods || !user.services || !user.frees || !user.communities) {
     return <p>Loading...</p>;
   }
@@ -21,9 +21,6 @@ const usersGoods = user.goods ? (
     </div>
   ))
 ) : null;
-
-
-
 
 const usersServices = user.services ? (
 user.services.map(service => (
@@ -61,7 +58,7 @@ user.communities.map(community => (
 
 
 const handleDeleteClickGood = (good_id) => {
-  fetch(`/goods/${good_id}`, {
+  fetch(`goods/${good_id}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json"

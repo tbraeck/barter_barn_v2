@@ -188,19 +188,19 @@ margin-left: 60px;
 
 .category-column {
   flex: 1;
-  margin: 20; 
+  margin: 10; 
   align-items: center;
   max-width: 500px; 
   border: 1px solid #ccc;
   border-radius: 20px; 
   box-shadow: 5px 10px #888888;
-  padding: 20px; 
+  padding: 10px; 
   display: flex;
   flex-direction: column;
   align-content: center;
   text-align: center; 
   transition: transform 0.3s; 
-
+max-height: 95%;
 }
 
 .category-column:hover  {
@@ -240,7 +240,7 @@ margin-left: 60px;
   align-items: center;
   background-image: url('./services/farmer-33.png'), url('./services/cart.png') ;
   background-repeat: no-repeat, no-repeat;
-  background-size: 30%;
+  background-size: 35%;
   /* opacity: 0.2; */
   background-position: center left, center right; 
   position: relative; 

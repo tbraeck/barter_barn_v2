@@ -16,22 +16,9 @@ const AllGoods = () => {
     </div>
   ));
   
-  return (
-    <div>
-      
-    <div className="forum-container"><div>
-        {/* <Link to={`/services`} className="link header-link" style={{}}>
-          <h1 className='category-column-h1'>SERVICES</h1>
-        </Link>
-        <Link to={`/frees`} className="link header-link">
-            <h1 className='category-column-h1'>FREE STUFF</h1>
-        </Link>
-        <Link to={`/communities`} className="link header-link">
-            <h1 className='category-column-h1'>COMMUNITY</h1>
-        </Link> */}
-      </div>
+  return (      
+    <div className="forum-container">
       <div className="category-column" style={{ backgroundColor: '#ffb3ba' }}>
-
       <Link to={`/goods`} className="link ">
         <h2 className='h2Forum'>GOODS</h2>
       </Link>
@@ -40,7 +27,6 @@ const AllGoods = () => {
     </div>
     </div>
     </div>
-  </div>
   )
 }
 

@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
-  skip_before_action :authorize, only: [:index, :create]
+  skip_before_action :authorize, only: [:index, :show, :create]
 
   def index 
     users = User.all
-    render json: users, include: [:goods, :services, :frees], status: :ok
+    render json: users, include: [:goods, :services, :frees, :communities], status: :ok
   end
   
   def show
@@ -26,4 +26,8 @@ class UsersController < ApplicationController
     def user_params
       params.permit(:id, :username, :password)
     end
+
+    # def set_good
+    #   @good = @current_user.goods.find(params[:id])
+    # end
 end
